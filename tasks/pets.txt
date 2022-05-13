@@ -1,0 +1,48 @@
+6.0 Pets 
+PET	Buffs, De Buffs & Unlocking
+
+*Egg	- At 1000 days you are able to buy the deed to the house letting you gain profit each month from a new tenant but you have to pay for power and water bills each 3 months or 90 days	
+        - Tells you that the buff is ??? Until you unlock the buff	A legit Easter egg
+		- Unknown way to unlock
+
+*Dog	- Can common give you $10 - $100	
+        - Can uncommonly increase the rent price by $5 - $50	
+        - The 1st starter pet
+
+*Cat	- Gives you a 5% discount to rent price
+        - But can randomly increase rent price by 0-7.5% 	
+        - The 2nd starter pet
+		
+*Goldfish	- Gives you $1 gold each day	
+            - adds +$10 rent money (at the end of the multiplier)
+
+*Phoenix	- Pays for 100% of your rent and 25% of your next rent once you cant pay for it and would normally lose	
+            - Has once use	Unlocked after 1000 failed games
+		    - Adds +10%  rent payment
+
+*Dragon	    - has all pet buffs that are main pets [*]	
+            - has all pet de buffs are main pets [*]	
+            - Must have all other main pets unlocked
+
+*Snake	    - Gives you +1% rent price as profit each day	
+            - Has a 1 in 1000 chance of being killed making you lose the buff	
+
+*Monkey	    - Gives you -5 to +5 extra rent days	
+
+*Pig	    -[Piggy Bank], add 1 dollar every day to a piggy bank and will be saved up until you are going to lose the game	
+            - 1 in 1000 chance to destroy everything costing you 1000 to 100% or your rent price (if the rent price is under 1000 then the price will be 1000)	
+
+*Tortoise	- Lets you have 5-15 more days to pay for rent (re-rolled each rent day)	
+            - Increases rent price by 5% 	
+
+*Bird	    - Can rarely (1 in 100 chance) give you a cheque that has 0% to 15% of your rent price	
+            -rarely gives you money	
+
+*Rock	    - 1 in 100 chance to have an ability activated	(all passive ability's and no de buffs)	
+	            • Adds +1 day until rent is due
+	            • Gives you +2% rent price as profit
+	            • Reduces rent price by 2.5% (once off)
+	            • Reduces rent price by 1% for all time
+
+	
+*Main Pets
