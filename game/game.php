@@ -21,8 +21,7 @@ $_SESSION['lose'] = true;
         <!--pet stuff-->
         
             <select name="pets" id="pets" class='pets'>
-                <?php $pet_select = $_SESSION['pets']; ?>
-                <option value="<?php echo $pet_select; ?>">Select an option</option>
+                <option value="<?php echo $_SESSION['pets']; ?>"><?php if(empty($_SESSION['pets'])){echo'Select an option';}else{echo $_SESSION['pets']; } ?></option>
                 <option value="dog">Dog</option>
                 <option value="cat">Cat</option>
                
@@ -41,9 +40,8 @@ $_SESSION['lose'] = true;
     
 <div id="main_content"> 
 <?php
-    if (!empty($_POST['pets'])){
-    $_SESSION['pets'] = $_POST['pets'];
-    }
+
+    @$_SESSION['pets'] = $_POST['pets'];
 
 //collect data from database and check if its the same as your pc name
 $data = mysqli_query($connection,"SELECT * FROM savegame WHERE UserKey = '$userkey';");
@@ -265,7 +263,10 @@ if (isset($_POST['save'])){
     //last price +/-
     @$_SESSION['sale1pricelast'] = $sale1pricelast;
     @$_SESSION['sale2pricelast'] = $sale2pricelast;
-?>
+    //pet_stats
+    @$_SESSION['pets'] = $pet;
+    echo $_SESSION['pets'].'hi';
+    ?>
 </div>
 </div>
 

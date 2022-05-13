@@ -5,14 +5,9 @@
 //? for above is there any way i can connect the functions to the next day function?
 
 $pet = $_SESSION['pets'];
+echo $pet.'here';
 
 switch($pet){
-    default:
-    echo "no pet selected";
-    break;
-    case '':
-        echo "no pet selected";
-    break;
     case 'dog':
         echo 'your pet is a dog';
         //randomly give you $10 - 100
@@ -139,7 +134,12 @@ switch($pet){
     case 'egg':
         
     break;
-
+    case '':
+        echo "no pet selected case";
+    break;
+    default:
+    echo "no pet selected default";
+    
    
 }
 
