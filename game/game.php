@@ -20,20 +20,19 @@ $_SESSION['lose'] = true;
         <input type="submit" name="nextday" value="Next Day!">
         <!--pet stuff-->
         
-            <select name="pets" id="pets">
-                <option value="">pets don't work yet</option>
-                <option value="">Select an option</option>
+            <select name="pets" id="pets" class='pets'>
+                <?php $pet_select = $_SESSION['pets']; ?>
+                <option value="<?php echo $pet_select; ?>">Select an option</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
                
             </select>
-        <p>Pet Selected: none</p>
-        <!--<img src="../images/pets/phoenix.png" style="height:20%;">//!EXAMPLE PET IMAGE-->
 
         <input type="button" onclick="location='pets.php'" value="Pets Menu">
         <input type="submit" name='save' value="Save and Quit">
         <input type="button" onclick="javascript:resetGame();" value="Reset Game">
     
 </form>
-
 
 <!--main content-->
 <div id="main">
@@ -42,7 +41,9 @@ $_SESSION['lose'] = true;
     
 <div id="main_content"> 
 <?php
-
+    if (!empty($_POST['pets'])){
+    $_SESSION['pets'] = $_POST['pets'];
+    }
 
 //collect data from database and check if its the same as your pc name
 $data = mysqli_query($connection,"SELECT * FROM savegame WHERE UserKey = '$userkey';");
