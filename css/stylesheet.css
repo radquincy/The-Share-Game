@@ -48,7 +48,6 @@ input[type="button"] {
   padding-top: 20px;
   padding-bottom: 20px;
   width: 100%;
-  margin-bottom: 40px;
 }
 
 .warning {
@@ -69,6 +68,11 @@ input[type="button"] {
   height: 10%;
   width: 90%;
   font-size: 120%;
+}
+
+#sidebar input[type="submit"]:hover,
+#sidebar input[type="button"]:hover {
+  background-color: var(--ButtonBackGroundColourHover);
 }
 
 #sidebar img {
@@ -226,8 +230,8 @@ input[type="email"] {
   opacity: 0;
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
-  -webkit-transition-delay: 500ms;
-          transition-delay: 500ms;
+  -webkit-transition-delay: 600ms;
+          transition-delay: 600ms;
 }
 
 .tooltip:hover .tooltiptext {
@@ -273,4 +277,91 @@ select {
 		left: 58vw;
 		top: 20vh;
 }*/
+.note_warn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  background-color: #f44336;
+  color: white;
+  width: 98%;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+  max-width: 100%;
+  max-height: 15%;
+  padding: 1%;
+}
+
+.note_good {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  background-color: #46c764;
+  color: white;
+  width: 98%;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+  max-width: 100%;
+  max-height: 15%;
+  padding: 1%;
+}
+
+.note_medium {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  background-color: #f48f36;
+  color: white;
+  width: 98%;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+  max-width: 100%;
+  max-height: 15%;
+  padding: 1%;
+}
+
+.closebtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 2%;
+}
+
+.closebtn:hover {
+  color: black;
+}
 /*# sourceMappingURL=stylesheet.css.map */

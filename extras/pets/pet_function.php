@@ -5,24 +5,28 @@
 //? for above is there any way i can connect the functions to the next day function?
 
 $pet = $_SESSION['pets'];
-echo $pet.'here';
 
 switch($pet){
     case 'dog':
-        echo 'your pet is a dog';
         //randomly give you $10 - 100
         $chance_dog_1 = rand(1,50);
         if($chance_dog_1 == 1){
             $rand_dog_1 = rand(10, 100);
             $money = $money + $rand_dog_1;
-            echo 'your dog found $'.$rand_dog_1.' that you get to keep';
+            echo "<div class=\"note_good\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                your dog found $".$rand_dog_1." that you get to keep
+            </div>";
         }else{
             //randomly increase rent price by $2 - 25
             $chance_dog_2 = rand(1,100);
             if($chance_dog_2 == 1){
                 $rand_dog_2 = rand(5, 25);
                 $rentprice = $rentprice + $rand_dog_2;
-                echo 'Your rent was increased by $'.$rand_dog_2.' because your dog broke something!';
+                echo "<div class=\"note_warn\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                Your rent was increased by $".$rand_dog_2." because your dog broke something!
+                </div>";
             }
         }
     break;

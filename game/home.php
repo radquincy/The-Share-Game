@@ -37,7 +37,12 @@
     <!--Headings-->
     <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"></div>
 
-    
+    <?php
+    echo "<div class=\"note_medium\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            Warning this is a pre release and they can be many problems or accidental bug testing tools left in the game, please be patient
+        </div>";   
+    ?>
 
 
 <div style="margin: 1%;">
@@ -60,7 +65,7 @@ echo "<h2 style='font-size: 18px; text-align: left;'>". $username."</h2>";
 </form> 
 
 <br><br><br><br><br>
-<h3>Version 6.0 Pre-2</h3>
+<h3>Version 6.0 Pre-3</h3>
 
 <form method="post">
 <input type="button" onclick="location='../versions_page.php'" value="All Game Versions and Changes">

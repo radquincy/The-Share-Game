@@ -18,16 +18,14 @@ $_SESSION['lose'] = true;
 <form method='POST' id="sidebar">
     
         <input type="submit" name="nextday" value="Next Day!">
-        <!--pet stuff-->
-        
-            <select name="pets" id="pets" class='pets'>
-                <option value="<?php echo $_SESSION['pets']; ?>"><?php if(empty($_SESSION['pets'])){echo'Select an option';}else{echo $_SESSION['pets']; } ?></option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-               
-            </select>
-
         <input type="button" onclick="location='pets.php'" value="Pets Menu">
+        <?php 
+            if (!empty($_SESSION['pets'])){
+                echo 'Pet Selected: '.$_SESSION['pets'];
+            }else{
+                echo 'No Pet Selected';
+            }
+        ?>
         <input type="submit" name='save' value="Save and Quit">
         <input type="button" onclick="javascript:resetGame();" value="Reset Game">
     
@@ -41,7 +39,6 @@ $_SESSION['lose'] = true;
 <div id="main_content"> 
 <?php
 
-    @$_SESSION['pets'] = $_POST['pets'];
 
 //collect data from database and check if its the same as your pc name
 $data = mysqli_query($connection,"SELECT * FROM savegame WHERE UserKey = '$userkey';");
@@ -94,7 +91,12 @@ if(empty($_SESSION['session'])){
             round($rentprice,0);
             round($money,0);
             $rentday = 30;
-            echo "<div class='warning'>Money for Rent was Taken</div>";
+            /*echo "<div class='warning'>Money for Rent was Taken</div>";*/
+            echo "
+            <div class=\"note_warn\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                Money for Rent was Taken!
+            </div>";
         }else{
             header("Location: lose.php");
             
@@ -263,9 +265,7 @@ if (isset($_POST['save'])){
     //last price +/-
     @$_SESSION['sale1pricelast'] = $sale1pricelast;
     @$_SESSION['sale2pricelast'] = $sale2pricelast;
-    //pet_stats
-    @$_SESSION['pets'] = $pet;
-    echo $_SESSION['pets'].'hi';
+
     ?>
 </div>
 </div>

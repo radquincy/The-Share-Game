@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once('../extras/important/needed.php');
+@session_start();
 ?>
 <link rel="stylesheet" href="../css/stylesheet.css">
 
@@ -15,10 +16,39 @@ require_once('../extras/important/needed.php');
 <!--Headings-->
 <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"></div>
 
+<?php
+echo "<div class=\"note_warn\">
+<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+all available pets will be unlocked until it is closer to the full release where you have to unlock them (they will be wiped)
+</div>";
+
+?>
+<br><br>
 <h1>Pets</h1>
 
 <input type="button" onclick="location='game.php'" value="Back To Game">
 <br>
+
+<!--select pet-->
+<form method="POST">
+    <select name="pets" id="pets" class='pets' style="width:15%" required>
+        <option value="">Select an option</option>
+        <option value="dog">Dog</option>
+        <option value="rock">Rock</option>    
+        <option value="bird">Bird</option>  
+    </select>
+    <input type='submit' name='confirm_pet' value='Confirm Pet'>
+</form>
+
+<?php
+    if(isset($_POST['pets'])){
+        $_SESSION['pets'] = $_POST['pets'];
+        echo 'you changed your pet to: '.$_SESSION['pets'];
+    }
+?>
+
+
+<br><br>
 
 <div id='pet_grid'>
     <div class="tooltip" >

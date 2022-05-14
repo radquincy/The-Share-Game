@@ -40,7 +40,14 @@ require ('../extras/important/connect.php');
         <img src="../images/logo2.png" style="width: 200px;">
         <p>Public Leader Board</p>
     </div>
+    <?php
+        echo "<div class=\"note_warn\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            The Leader board will be wiped before 6.0 is released (does not includes games played)
+        </div>";
+    ?>
 
+    <br><br>
     <input type="button" onclick="location='home.php'" value="Home Page">
     <br><br><br>
 
