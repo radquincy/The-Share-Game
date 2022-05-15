@@ -40,7 +40,7 @@
     <?php
     echo "<div class=\"note_medium\">
             <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-            Warning this is a pre release and they can be many problems or accidental bug testing tools left in the game, please be patient
+            Warning, this is a pre release and there can be many problems, uncompleted features and items that shouldn't be in the game
         </div>";   
     ?>
 
