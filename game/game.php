@@ -97,11 +97,13 @@ if(empty($_SESSION['session'])){
                 $rent_price_discount = 0;
             }
             //pet discounts for rent price
-            $rentprice = $rentprice - $rent_price_discount;
-            
+            $rentprice = $rentprice + @$rent_price_increase;
+            $rentprice = $rentprice - @$rent_price_discount;
+
             round($rentprice,0);
             round($money,0);
             $rentday = 30;
+            $rentday = $rentday + @$rent_day_change;
             /*echo "<div class='warning'>Money for Rent was Taken</div>";*/
             echo "
             <div class=\"note_warn\">

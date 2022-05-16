@@ -1,9 +1,6 @@
 <?php
 
 
-//! Note: add this to the next day function to run along with that function
-//? for above is there any way i can connect the functions to the next day function?
-
 @$pet = $_SESSION['pets'];
 
 switch($pet){
@@ -75,11 +72,16 @@ switch($pet){
 
     break;
     case 'bird':
-        //randomly give you a check
+        //randomly give you a cheque
         $chance_bird_1 = rand(1,100);
         if ($chance_bird_1 == 1){
             $calc_bird_1 = $rentprice / 4;
-            $money = $money + rand(0, $calc_bird_1);
+            $rand_bird_1 = rand(0, $calc_bird_1);
+            $money = $money + $rand_bird_1;
+            echo "<div class=\"note_good\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                Your Bird Found you a cheque worth $".$rand_bird_1." and you get to keep it
+            </div>";
         }
 
 
@@ -97,17 +99,24 @@ switch($pet){
     break;
     case 'rock':
         //rand buff
-       $chance_rock_1 = rand(1,100);
+       $chance_rock_1 = rand(1,30);
        if($chance_rock_1 == 1){
            $rand_rock_1 = rand(1,4);
            switch($rand_rock_1){
                 case 1:
-                    $rentday = $rentday + 1;
-                    echo "you got one extra day until your rent is due because of you rock";
+                    $rand_rock_4 = rand(1,5);
+                    $rentday = $rentday + $rand_rock_4;
+                    echo "<div class=\"note_good\">
+                    <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                    you got ".$rand_rock_4." extra day/s until your rent is due, because of you rock
+                    </div>";
                 break;
                 case 2:
-                    $money = $money + ($rentprice / 50);
-                    echo 'your rock got you 2% of your rent  price';
+                    $money = $money + (($rentprice / 100) * 2);
+                    echo "<div class=\"note_good\">
+                    <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                    your rock got you 2% of your rent price
+                    </div>";
 
                 break;
                 case 3:
@@ -118,12 +127,19 @@ switch($pet){
                     }elseif($rand_rock_2 == 2){
                         $sale2 = $sale2 + $rand_rock_3;
                     }
-                    echo 'your rock gave you '.$rand_rock_3.' of share'.$rand_rock_2;
+                    echo "<div class=\"note_good\">
+                    <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                    your rock gave you ".$rand_rock_3." of share ".$rand_rock_2."
+                    </div>";
 
                 break;
                 case 4:
-                    $rentprice = $rentprice - ($rentprice / 100);
-                    echo 'your rock reduced your rent by 1%';
+                    $rand_rock_5 = rand(1,5);
+                    $rentprice = $rentprice - (($rentprice / 100)* $rand_rock_5);
+                    echo "<div class=\"note_good\">
+                    <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                    your rock reduced your rent by ".$rand_rock_5."%
+                    </div>";
                 break;
 
            }
