@@ -35,7 +35,8 @@ all available pets will be unlocked until it is closer to the full release where
         <option value="">Select an option</option>
         <option value="dog">Dog</option>
         <option value="rock">Rock</option>    
-        <option value="bird">Bird</option>  
+        <option value="bird">Bird</option>
+        <option value="cat">Cat</option>    
     </select>
     <input type='submit' name='confirm_pet' value='Confirm Pet'>
 </form>

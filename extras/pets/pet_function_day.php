@@ -31,16 +31,19 @@ switch($pet){
         }
     break;
     case 'cat':
-        echo 'pet selected cat';
-        //increase rent price permanently by $0 - 7.5
-        $chance_cat_1 = rand(1,100);
+        //increase rent price permanently by $0 - 7.5% of rent
+        $chance_cat_1 = rand(1,50);
         if($chance_cat_1 == 1){
-            $rand_cat_1 = rand(0,7.5);
+            $var_cat_1 = $rentprice / 200 * 15;
+            $rand_cat_1 = rand(0,$var_cat_1);
             $rentprice = $rentprice + $rand_cat_1;
+            echo "<div class=\"note_warn\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                Your rent was increased by $".$rand_cat_1." because your cat broke something!
+                </div>";
             
         }
         //discount rent price by 5%
-
         
     break;
     case 'goldfish':
@@ -108,7 +111,14 @@ switch($pet){
 
                 break;
                 case 3:
-                    echo 'your rock would have once off reduced your rent by 1% but this ability isn\'t working yet';
+                    $rand_rock_2 = rand(1,2);
+                    $rand_rock_3 = rand(1,5);
+                    if($rand_rock_2 == 1){
+                        $sale1 = $sale1 + $rand_rock_3;
+                    }elseif($rand_rock_2 == 2){
+                        $sale2 = $sale2 + $rand_rock_3;
+                    }
+                    echo 'your rock gave you '.$rand_rock_3.' of share'.$rand_rock_2;
 
                 break;
                 case 4:

@@ -86,8 +86,19 @@ if(empty($_SESSION['session'])){
 //rent day ----- Lose Game
     if ($rentday < 1)   {
         if ($money >= $rentprice)   {
+            
+
+            
             $money = $money - $rentprice;
             $rentprice = $rentprice * 3;
+
+            require("../extras/pets/pet_function_rent.php");
+            if (empty($rent_price_discount)){
+                $rent_price_discount = 0;
+            }
+            //pet discounts for rent price
+            $rentprice = $rentprice - $rent_price_discount;
+            
             round($rentprice,0);
             round($money,0);
             $rentday = 30;
@@ -116,7 +127,7 @@ if (isset($_POST["nextday"])){
     floor($rentprice);
     floor($money);
 
-    require("../extras/pets/pet_function.php");
+    require("../extras/pets/pet_function_day.php");
     require("../extras/price_change.php");
 
 }
