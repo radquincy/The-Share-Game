@@ -4,7 +4,7 @@
 //! Note: add this to the next day function to run along with that function
 //? for above is there any way i can connect the functions to the next day function?
 
-$pet = $_SESSION['pets'];
+@$pet = $_SESSION['pets'];
 
 switch($pet){
     case 'dog':
@@ -149,10 +149,8 @@ switch($pet){
         
     break;
     case '':
-        echo "no pet selected case";
     break;
     default:
-    echo "no pet selected default";
     
    
 }
