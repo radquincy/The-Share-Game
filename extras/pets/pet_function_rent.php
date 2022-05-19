@@ -82,10 +82,9 @@ switch($pet){
         //egg to come soon
     break;
     case '':
-        echo "no pet selected case";
+        
     break;
     default:
-    echo "no pet selected default";
     
    
 }
