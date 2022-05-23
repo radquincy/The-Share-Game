@@ -17,19 +17,7 @@ require("../extras/important/connect.php");
     <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"></div>
 </body>
 
-<br>
 
-<h2>Sign In</h2>
-
-<form method="post">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <br><br>
-    <input type="submit" name="submit">
-</form>
-
-
-<br><br><br>
 
 <?php
 session_start();
@@ -65,17 +53,38 @@ if(empty($username)){
             $_SESSION['signin'] = 'true';
             header( "refresh:0; url=../game/home.php");
         }else{
-            echo 'Incorrect Username or Password!';
+            echo "<div class=\"note_warn\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            Incorrect Username or Password!
+            </div>"; 
+
             $_SESSION['signin'] = 'false';}
 }else{
     sleep(2);
-    echo 'Incorrect Username or Password!';
+        echo "<div class=\"note_warn\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            Incorrect Username or Password!
+            </div>"; 
     $_SESSION['signin'] = 'false';
 }
 }
 
-
 ?>
+
+<br>
+<h2>Sign In</h2>
+
+<form method="post">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <br><br>
+    <input type="submit" name="submit">
+</form>
+
+
+<br><br><br>
+
+
 <h5>Only Passwords are case sensitive for sign in!</h5>
 <h5>If you do not have an account please <input type='button' onclick='location="create_account.php"' value='Create an Account'></h5>
 <input type="button" onclick="location='../index.php'" value="Home">

@@ -40,18 +40,21 @@
     <?php
     echo "<div class=\"note_medium\">
             <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-            Warning, this is a pre release and there can be many problems, uncompleted features and items that shouldn't be in the game
+            Warning, this is a pre release and there can be many problems, uncompleted features and items that shouldn't be in the game. if you find any bugs <a href='../account/report.php'> Please Report them here</a>
         </div>";   
     ?>
 
 
 <div style="margin: 1%;">
-<?php
-echo "<h2 style='font-size: 18px; text-align: left;'>". $username."</h2>";
-?>
+
 
 <input style="float: left;" type="button" onclick="location='../account/account.php'" value="Settings">
 <input style="float: left;" type="button" onclick="location='../index.php'" value="Log Out">
+<input style="float: left;" type="button" onclick="location='../account/report.php'" value="Report a Bug">
+
+<?php
+echo "<br><br><h2 style='font-size: 18px; text-align: left;'> Welcome, ". $username."!</h2>";
+?>
 </div>
 
 

@@ -19,6 +19,40 @@
     </div>
 </body>
 
+<?php 
+
+if(isset($_POST['submit_report'])){
+    $filtered_report_type = filter_var($_POST['report_type'], FILTER_UNSAFE_RAW);
+    $filtered_explanation = filter_var($_POST['explanation'], FILTER_UNSAFE_RAW);
+
+    if(!empty($filtered_report_type) && !empty($filtered_explanation)){
+
+        if (strlen($filtered_explanation) <= 600){
+
+            mysqli_query ($connection,"INSERT INTO sg_report (UserKey, category, explanation) 
+            VALUES('$userkey','$filtered_report_type','$filtered_explanation')");
+
+            echo "<div class=\"note_good\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                Thank you for submitting a report
+            </div>";
+        }else{
+            echo "<div class=\"note_warn\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                There were too many characters in your explication please make sure your explication under 600 characters
+            </div>";
+        }
+
+    }else{
+        echo "<div class=\"note_warn\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                One of the inputs was left empty so the report was not submitted
+            </div>";
+        }
+    }
+
+?>
+
 <br><br>
 <p>
     Welcome to the bug report! This is where you can submit problems that the game has here.<br>
@@ -49,29 +83,7 @@
 
 </form>
 
-<?php 
 
-if(isset($_POST['submit_report'])){
-    $filtered_report_type = filter_var($_POST['report_type'], FILTER_UNSAFE_RAW);
-    $filtered_explanation = filter_var($_POST['explanation'], FILTER_UNSAFE_RAW);
-
-    if(!empty($filtered_report_type) && !empty($filtered_explanation)){
-        echo strlen($filtered_explanation).'<br>';
-
-    if (strlen($filtered_explanation) <= 600){
-
-        mysqli_query ($connection,"INSERT INTO sg_report (UserKey, category, explanation) 
-        VALUES('$userkey','$filtered_report_type','$filtered_explanation')");
-
-        echo 'Thank you for submitting a report';
-    }else{
-        echo "one of the inputs was left empty so the report was not submitted";
-        }
-    }
-}
-
-
-?>
 
 <br><br>
 <input type="button" onclick="location='../game/home.php'" value="Home">

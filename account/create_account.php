@@ -12,18 +12,6 @@
     <!--Headings-->
     <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"></div>
 </body>
-<br>
-<h2>Create Account</h2>
-
-<form method="post">
-    <input type='text' name='username' placeholder='enter username' minlength="1" maxlength="30" required>
-    <input type='password' name='password' placeholder='enter password' minlength="6" maxlength="30" required>
-    <input type='password' name='password2' placeholder='confirm password' minlength="6" maxlength="30" required>
-    <br><br>
-    <input type='submit' name='submit' value='Create Account'>
-        
-    
-</form>
 
 <?php
 
@@ -45,7 +33,10 @@ $info2 = mysqli_fetch_array( $data2 );
 if (isset($_POST['submit'])){
     if($password == $password2){
         if ($info['username'] == $username){
-            echo 'Username taken, Please try another one!';
+            echo "<div class=\"note_warn\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            Username already taken, Please try another one!
+            </div>";
         }else{
             include 'generate_code.php';
             $key;
@@ -54,20 +45,40 @@ if (isset($_POST['submit'])){
                 $key;
             }while ($info2['userkey'] == $key);
             //password hashing
-            $hashedpass = password_hash($password, PASSWORD_BCRYPT, ['cost' => 14]);
+            $hashedpass = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
             //end of password hashing
             mysqli_query ($connection,"INSERT INTO sgsignin (username, password, userkey) VALUES('$username','$hashedpass','$key')");
-            echo 'Account Created';
-            echo '<br>Redirecting...';
+            echo "<div class=\"note_good\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            Account Created, Redirecting...
+            </div>";
             header( "refresh:2; url=sign_in.php");
 }
 
     }else{
-        echo 'The Password are not the same please try again';
+        echo "<div class=\"note_warn\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            The Password are not the same please try again
+            </div>";
     }
 }
 
 ?>
+
+<br>
+<h2>Create Account</h2>
+
+<form method="post">
+    <input type='text' name='username' placeholder='enter username' minlength="1" maxlength="30" required>
+    <input type='password' name='password' placeholder='enter password' minlength="6" maxlength="30" required>
+    <input type='password' name='password2' placeholder='confirm password' minlength="6" maxlength="30" required>
+    <br><br>
+    <input type='submit' name='submit' value='Create Account'>
+        
+    
+</form>
+
+
 <br><br><br>
 <h5>All Usernames and passwords are case sensitive!</h5>
 
