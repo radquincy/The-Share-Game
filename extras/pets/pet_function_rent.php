@@ -1,5 +1,7 @@
 <?php
 
+//!NOTES:
+// $_SESSION['pet_usage'] = [0]=phoenix [1]=snake
 
 @$pet = $_SESSION['pets'];
 

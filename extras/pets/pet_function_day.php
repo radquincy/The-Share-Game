@@ -1,5 +1,8 @@
 <?php
 
+//!NOTES:
+// $_SESSION['pet_usage'] = [0]=phoenix [1]=snake
+
 
 @$pet = $_SESSION['pets'];
 
@@ -61,7 +64,20 @@ switch($pet){
         //adds $1 every day to the piggy bank and uses it when you are going to lose
         if ($money >= 1){
             $money = $money - 1;
-            $piggy_bank = $piggy_bank + 1;
+            $_SESSION['piggy_bank'] = $_SESSION['piggy_bank'] + 1;
+        }else{
+            echo "<div class=\"note_medium\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                your pig wasn't able to store $1 in his piggy bank;
+            </div>";
+        }
+        if ($rentday == 0 && $money < $rentprice){
+            $money = $money + $_SESSION['piggy_bank'];
+            $_SESSION['piggy_bank'] = 0;
+            echo "<div class=\"note_medium\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            your pig broke the piggy bank to save you!
+            </div>";
         }
 
         //has a 1/1000 chance to break and you gain 25% - 75% of the money (the rest goes into the new piggy bank)
@@ -87,12 +103,16 @@ switch($pet){
 
     break;
     case 'snake':
-        if($snake == true){
+        $snake = $_SESSION['pet_usage'][1];
+        if($snake == "false"){
             $money = $money + ($rentprice / 100);
             $snake_death = rand(1,1000);
-            if ($snake_death = 1){
-                $snake = false;
-                echo "your snake was killed, you no longer get the snakes buff";
+            if ($snake_death == 1){
+                $_SESSION['pet_usage'][1] = "true";
+                echo "<div class=\"note_warn\">
+                    <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                    your snake was killed, you no longer get the snakes buff
+                </div>";
             }
         }
         
@@ -146,12 +166,16 @@ switch($pet){
        }
     break;
     case 'phoenix':
-        if ($phoenix == true){
+        $phoenix = $_SESSION['pet_usage'][0];
+        if($phoenix == "false"){
             //add rent payment until death
-            
-            if ($day == 0 && $money < $rentprice){
+            if ($rentday == 0 && $money < $rentprice){
                 $money = $money + ($rentprice + ($rentprice/4*3));
-                $phoenix = false;
+                $_SESSION['pet_usage'][0] = "true";
+                echo "<div class=\"note_medium\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                your phoenix saved you from losing and is now flying into the sunset, but you also find it left you a 25% of your rent to help you out
+                </div>";
             }
         }
 

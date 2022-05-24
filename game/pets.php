@@ -21,7 +21,10 @@ echo "<div class=\"note_warn\">
 <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
 all available pets will be unlocked until it is closer to the full release where you have to unlock them (they will be wiped)
 </div>";
-
+echo "<div class=\"note_medium\">
+<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+some pet descriptions will not be correct due to balancing and pet changes  
+</div>";
 ?>
 <br><br>
 <h1>Pets</h1>
@@ -40,6 +43,9 @@ all available pets will be unlocked until it is closer to the full release where
         <option value="goldfish">Goldfish</option>
         <option value="monkey">Monkey</option>
         <option value="turtle">Turtle</option>
+        <option value="phoenix">Phoenix</option>
+        <option value="snake">Snake</option>
+        <option value="pig">Pig</option>
     </select>
     <input type='submit' name='confirm_pet' value='Confirm Pet'>
 </form>
@@ -142,13 +148,15 @@ all available pets will be unlocked until it is closer to the full release where
     <div class="tooltip">
         Dragon<img src="../images/pets/dragon.png" style="width: 100%;">
         <span class="tooltiptext">
-            Has all pet buffs and de buffs
+            ???<br>
+            will be release later
         </span>
     </div>
     <div class="tooltip">
         Egg<img src="../images/pets/eggs.png" style="width: 100%;">
         <span class="tooltiptext" id='right'>
-            ???
+            ???<br>
+            will be released later
         </span>
     </div>
 </div>
