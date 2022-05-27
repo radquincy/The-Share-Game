@@ -68,7 +68,7 @@ echo "<br><br><h2 style='font-size: 18px; text-align: left;'> Welcome, ". $usern
 </form> 
 
 <br><br><br><br><br>
-<h3>Version 6.0 Pre-5</h3>
+<h3>Version 6.0 Pre-6</h3>
 
 <form method="post">
 <input type="button" onclick="location='../versions_page.php'" value="All Game Versions and Changes">

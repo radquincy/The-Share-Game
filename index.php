@@ -17,7 +17,7 @@ session_destroy();
     <!--Headings-->
     <div class="topheading">
         <img src="images/logo2.png" style="width: 200px;">
-        <p>Version: 6.0 Pre-5</p>
+        <p>Version: 6.0 Pre-6</p>
         <!--//!<img id="VersionOverlay" src="images/logo/6-0 version.png">-->
     </div>
 

@@ -8,7 +8,7 @@
   @$userkey = $_SESSION['key']; //your userkey
   @$signin = $_SESSION['signin'];
   
-if($signin=='false'||empty($userkey)||empty($username)){
+if($signin=='false'||empty($userkey)||empty($username)||empty($signin)){
     session_destroy();
     header( "refresh:0; url=../index.php");
     exit();
