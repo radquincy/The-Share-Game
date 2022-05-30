@@ -22,6 +22,8 @@ $_SESSION['lose'] = true;
         <?php 
             if (!empty($_SESSION['pets'])){
                 echo 'Pet Selected: '.$_SESSION['pets'];
+                $pet_img = $_SESSION['pets'];
+                echo "<img src='../images/pets/$pet_img.png' style='width: 120px;'>";
             }else{
                 echo 'No Pet Selected';
             }
@@ -98,9 +100,17 @@ if(empty($_SESSION['session'])){
             $rentprice = $rentprice * 3;
 
             require("../extras/pets/pet_function_rent.php");
+
             if (empty($rent_price_discount)){
                 $rent_price_discount = 0;
             }
+            if (empty($rent_price_increase)){
+                $rent_price_increase = 0;
+            }
+            if (empty($rent_day_change)){
+                $rent_day_change = 0;
+            }
+
             //pet discounts for rent price
             $rentprice = $rentprice + @$rent_price_increase;
             $rentprice = $rentprice - @$rent_price_discount;

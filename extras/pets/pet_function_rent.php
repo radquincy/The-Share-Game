@@ -21,7 +21,8 @@ switch($pet){
     break;
     case 'goldfish':
         //add $10 to rent price
-        $rent_price_increase = 10;
+        $var_goldfish_2 = $rentprice / 100 * 10;
+        $rent_price_increase = $var_goldfish_2;
         
     break;
     case 'monkey':
@@ -58,7 +59,7 @@ switch($pet){
         $rent_day_change = rand(5,15);
         //Increases rent price by 10% 
         $rent_price_increase = ($rentprice / 100) * 10;
-        echo "<div class=\"note_goodd\">
+        echo "<div class=\"note_good\">
                 <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
                 Your turtle gave you ". $rent_day_change ." extra days before you need to pay for your rent
             </div>";
@@ -75,6 +76,19 @@ switch($pet){
         
     break;
     case 'phoenix':
+        $phoenix = $_SESSION['pet_usage'][0];
+        if($phoenix == "false"){
+            //add rent payment until death
+            if ($rentday == 0 && $money >= $rentprice){
+                $money = $money + ($rentprice + ($rentprice / 100 * 75));
+                $_SESSION['pet_usage'][0] = "true";
+                echo "<div class=\"note_medium\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                your phoenix saved you from losing. It is now flying into the sunset. but you also find it gave you a 25% of your next rent to help you out
+                </div>";
+            }
+        }
+
 
     break;
     case 'dragon':

@@ -9,7 +9,7 @@
 switch($pet){
     case 'dog':
         //randomly give you $10 - 100
-        $chance_dog_1 = rand(1,50);
+        $chance_dog_1 = rand(1,25);
         if($chance_dog_1 == 1){
             $rand_dog_1 = rand(10, 100);
             $money = $money + $rand_dog_1;
@@ -19,7 +19,7 @@ switch($pet){
             </div>";
         }else{
             //randomly increase rent price by $2 - 25
-            $chance_dog_2 = rand(1,100);
+            $chance_dog_2 = rand(1,60);
             if($chance_dog_2 == 1){
                 $rand_dog_2 = rand(5, 25);
                 $rentprice = $rentprice + $rand_dog_2;
@@ -34,7 +34,7 @@ switch($pet){
         //increase rent price permanently by $0 - 7.5% of rent
         $chance_cat_1 = rand(1,50);
         if($chance_cat_1 == 1){
-            $var_cat_1 = $rentprice / 200 * 15;
+            $var_cat_1 = $rentprice / 100 * 7.5;
             $rand_cat_1 = rand(0,$var_cat_1);
             $rentprice = $rentprice + $rand_cat_1;
             echo "<div class=\"note_warn\">
@@ -49,9 +49,10 @@ switch($pet){
     case 'goldfish':
 
         //+ $1 each day
-        $money = $money + 1;
+        $var_goldfish_1 = $rentprice / 100;
+        $money = $money + $var_goldfish_1;
 
-        //add $10 to rent price
+        
 
         
     break;
@@ -62,21 +63,24 @@ switch($pet){
     break;
     case 'pig':
         //adds $1 every day to the piggy bank and uses it when you are going to lose
-        if ($money >= 1){
-            $money = $money - 1;
-            $_SESSION['piggy_bank'] = $_SESSION['piggy_bank'] + 1;
+        $var_pig_1 = ceil($money / 100);
+        if ($money >= $var_pig_1){
+            $var_pig_1 = ceil($money / 100);
+            $money = $money - $var_pig_1;
+            $_SESSION['piggy_bank'] = $_SESSION['piggy_bank'] + $var_pig_1;
         }else{
             echo "<div class=\"note_medium\">
                 <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-                your pig wasn't able to store $1 in his piggy bank;
+                your pig wasn't able to store any money in his piggy bank;
             </div>";
         }
         if ($rentday == 0 && $money < $rentprice){
+            $piggy_bank_savings = $_SESSION['piggy_bank'];
             $money = $money + $_SESSION['piggy_bank'];
             $_SESSION['piggy_bank'] = 0;
             echo "<div class=\"note_medium\">
             <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-            your pig broke the piggy bank to save you!
+            your pig broke the piggy bank to save you! the total saved was $piggy_bank_savings!
             </div>";
         }
 
@@ -84,14 +88,13 @@ switch($pet){
         
     break;
     case 'turtle':
-        //!pet needs to be completed
 
     break;
     case 'bird':
         //randomly give you a cheque
         $chance_bird_1 = rand(1,100);
         if ($chance_bird_1 == 1){
-            $calc_bird_1 = $rentprice / 4;
+            $calc_bird_1 = ($rentprice/100) * 30;
             $rand_bird_1 = rand(0, $calc_bird_1);
             $money = $money + $rand_bird_1;
             echo "<div class=\"note_good\">
@@ -135,7 +138,7 @@ switch($pet){
                     $money = $money + (($rentprice / 100) * 2);
                     echo "<div class=\"note_good\">
                     <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-                    your rock got you 2% of your rent price
+                    Your rock gave you 2% of your rent as money
                     </div>";
 
                 break;
@@ -154,8 +157,9 @@ switch($pet){
 
                 break;
                 case 4:
+                    //decreases rent by 1-5%
                     $rand_rock_5 = rand(1,5);
-                    $rentprice = $rentprice - (($rentprice / 100)* $rand_rock_5);
+                    $rentprice = $rentprice - (($rentprice / 100) * $rand_rock_5); 
                     echo "<div class=\"note_good\">
                     <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
                     your rock reduced your rent by ".$rand_rock_5."%
@@ -170,13 +174,19 @@ switch($pet){
         if($phoenix == "false"){
             //add rent payment until death
             if ($rentday == 0 && $money < $rentprice){
-                $money = $money + ($rentprice + ($rentprice/4*3));
+                $money = $money + ($rentprice + ($rentprice / 100 * 75));
                 $_SESSION['pet_usage'][0] = "true";
                 echo "<div class=\"note_medium\">
                 <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-                your phoenix saved you from losing and is now flying into the sunset, but you also find it left you a 25% of your rent to help you out
+                your phoenix saved you from losing. It is now flying into the sunset. but you also find it gave you a 25% of your next rent to help you out
                 </div>";
             }
+        }
+        if ($phoenix == true){
+            echo "<div class=\"note_warn\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            Your Phoenix has left you forever select a new pet.
+            </div>";
         }
 
         

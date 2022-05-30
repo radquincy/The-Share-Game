@@ -364,4 +364,32 @@ select {
 .closebtn:hover {
   color: black;
 }
+
+#common {
+  color: #b5b5b5;
+}
+
+#uncommon {
+  color: #15ca12;
+}
+
+#rare {
+  color: #3a98e5;
+}
+
+#epic {
+  color: #d919e7;
+}
+
+#legendary {
+  color: #ffd000;
+}
+
+#mythic {
+  color: #ff2a00;
+}
+
+#unique {
+  color: #f98d00;
+}
 /*# sourceMappingURL=stylesheet.css.map */
