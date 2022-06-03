@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="../css/stylesheet.css">
-<?php require('../extras/important/needed.php');
+<?php require('../extras/important/require_me.php');
 
 //delete all save stuff
     //has the game been saved by session?

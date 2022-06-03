@@ -76,6 +76,7 @@ switch($pet){
         
     break;
     case 'phoenix':
+        /*
         $phoenix = $_SESSION['pet_usage'][0];
         if($phoenix == "false"){
             //add rent payment until death
@@ -87,7 +88,7 @@ switch($pet){
                 your phoenix saved you from losing. It is now flying into the sunset. but you also find it gave you a 25% of your next rent to help you out
                 </div>";
             }
-        }
+        } */
 
 
     break;

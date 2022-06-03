@@ -94,7 +94,7 @@ switch($pet){
         //randomly give you a cheque
         $chance_bird_1 = rand(1,100);
         if ($chance_bird_1 == 1){
-            $calc_bird_1 = ($rentprice/100) * 30;
+            $calc_bird_1 = ($rentprice / 100) * 30;
             $rand_bird_1 = rand(0, $calc_bird_1);
             $money = $money + $rand_bird_1;
             echo "<div class=\"note_good\">

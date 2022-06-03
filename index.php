@@ -6,6 +6,7 @@ session_destroy();
 
 <!DOCTYPE html>
     <link rel="stylesheet" href="css/stylesheet.css">
+    <link href="images/icon/favicon.ico" rel="icon" type="image/x-icon" />
 <html lang="en">
 <head>
     <meta charset="UTF-8">
