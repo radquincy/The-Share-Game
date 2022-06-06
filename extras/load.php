@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php 
-    require("../extras/important/needed.php");
-    require '../extras/important/connect.php';
+    require('important/require_me.php');
 
     //share price random calculation
    $sale1price = rand(15,70);

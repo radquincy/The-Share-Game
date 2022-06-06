@@ -1,5 +1,7 @@
 <?php
 //number to letter
+require_once('../important/require_me.php');
+
 $n = '';
 $m = '';
 $r = '';    

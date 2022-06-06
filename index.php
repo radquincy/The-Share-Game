@@ -1,25 +1,19 @@
 <?php 
 session_start();
 session_destroy(); 
+require('extras/important/require_me.php');
 ?>
 
 
 <!DOCTYPE html>
-    <link rel="stylesheet" href="css/stylesheet.css">
-    <link href="images/icon/favicon.ico" rel="icon" type="image/x-icon" />
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shares Game</title>
 </head>
 <body style="text-align: center">
     <!--Headings-->
     <div class="topheading">
         <img src="images/logo2.png" style="width: 200px;">
-        <p>Version: 6.0 Pre-6</p>
-        <!--//!<img id="VersionOverlay" src="images/logo/6-0 version.png">-->
+        <p>Version: <?php echo $game_version ?></p>
     </div>
 
     <br><br>

@@ -20,7 +20,7 @@ require("../extras/important/connect.php");
 
 
 <?php
-session_start();
+@session_start();
 //open the storage container
 
 

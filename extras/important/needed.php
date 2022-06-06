@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<body>
-
 <?php
+require('require_me.php');
+
 //sign in check
 @session_start();
   @$username = $_SESSION['username'];

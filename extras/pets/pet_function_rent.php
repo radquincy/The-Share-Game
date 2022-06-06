@@ -1,5 +1,8 @@
 <?php
 
+require('../important/require_me.php');
+
+
 //!NOTES:
 // $_SESSION['pet_usage'] = [0]=phoenix [1]=snake
 

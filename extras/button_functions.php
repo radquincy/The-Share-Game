@@ -1,4 +1,5 @@
 <?php 
+require('important/require_me.php');
 
 if ($rentday > 0){
     //buy sale 1

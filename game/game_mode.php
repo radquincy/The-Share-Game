@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<?php require('../extras/important/needed.php');?>
-<?php require('../extras/important/connect.php');?>
+<?php require('../extras/important/require_me.php'); ?>
 
 <?php
     $data = mysqli_query($connection,"SELECT * FROM savegame WHERE UserKey = '$userkey';");
@@ -10,11 +9,9 @@
         header("Location: game.php");
     }
 
-
 ?>
 <head>
     <title>Shares Game - Select Mode</title>
-    <link rel="stylesheet" href="../css/stylesheet.css">
 </head>
 <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"><br>
 Pick a Game Mode

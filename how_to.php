@@ -1,12 +1,6 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="css/stylesheet.css">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shares Game - How to</title>
-</head>
+<?php require('extras/important/require_me.php'); ?>
+
 <body>
     <div class="topheading"><img src="images/logo2.png" style="width: 200px;"><br>How To Play and Tips</div>
 
@@ -16,11 +10,11 @@
 </form>
 <br><br>
 <!--how to play-->
-<?php require ("version_files/howto/how_to_play.html"); ?>
+<?php require ("version_files/how_to/how_to_play.html"); ?>
 <br><br>
 
 <!--tips-->
-<?php require ("version_files/howto/tips.html"); ?>
+<?php require ("version_files/how_to/tips.html"); ?>
 <br><br>
 
 <form method="post">

@@ -1,4 +1,6 @@
 <?php
+require('important/require_me.php');
+
 $sale1pricelast = 0;
 $sale2pricelast = 0;
 $sale1price = rand(10,60);

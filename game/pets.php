@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <?php
-require_once('../extras/important/needed.php');
-@session_start();
+require('../extras/important/require_me.php');
 ?>
-<link rel="stylesheet" href="../css/stylesheet.css">
 
 <html lang="en">
 <head>

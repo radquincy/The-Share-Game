@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="css/stylesheet.css">
+<?php require('extras/important/require_me.php'); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

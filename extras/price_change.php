@@ -1,4 +1,6 @@
 <?php
+require('../extras/important/require_me.php');
+
 if($rentday > 0){
 if ($sale1pricelast == 0){
         $sale1pricelast = rand(-6,10);

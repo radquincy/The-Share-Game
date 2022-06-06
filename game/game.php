@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <?php 
 
-require('../extras/important/needed.php') ;
-//conect to the database
-require ('../extras/important/connect.php');
+require('../extras/important/require_me.php');
 $_SESSION['lose'] = true;
 ?>
 
 <head>
     <title>Shares Game - Game</title>
-    <link rel="stylesheet" href="../css/stylesheet.css">
 </head>
 <body game>
 
@@ -67,7 +64,7 @@ if (!empty($_SESSION['session'])){
     @$sale2pricelast = $_SESSION['sale2pricelast'];
 }
 
-if (@$day <= 0){
+if (@$day = 0){
     // $_SESSION['pet_usage'] = [0]=phoenix [1]=snake
     $_SESSION['pet_usage'] = array("false", "false");
     $_SESSION['piggy_bank'] = 0;
@@ -93,9 +90,7 @@ if(empty($_SESSION['session'])){
 //rent day ----- Lose Game
     if ($rentday < 1)   {
         if ($money >= $rentprice)   {
-            
-
-            
+                        
             $money = $money - $rentprice;
             $rentprice = $rentprice * 3;
 

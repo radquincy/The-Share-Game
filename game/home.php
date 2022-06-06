@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="../css/stylesheet.css">
 <?php require('../extras/important/require_me.php');
 
 //delete all save stuff
@@ -26,13 +25,7 @@
     @$_SESSION['sale2pricelast'] = null;
 
 ?>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shares Game - Home</title>
-</head>
+
 <body>
     <!--Headings-->
     <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"></div>
@@ -68,7 +61,7 @@ echo "<br><br><h2 style='font-size: 18px; text-align: left;'> Welcome, ". $usern
 </form> 
 
 <br><br><br><br><br>
-<h3>Version 6.0 Pre-6</h3>
+<h3>Version <?php echo $game_version; ?></h3>
 
 <form method="post">
 <input type="button" onclick="location='../versions_page.php'" value="All Game Versions and Changes">
