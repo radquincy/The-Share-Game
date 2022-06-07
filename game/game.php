@@ -64,9 +64,14 @@ if (!empty($_SESSION['session'])){
     @$sale2pricelast = $_SESSION['sale2pricelast'];
 }
 
-if (@$day = 0){
+if(empty($day)){
+    $day = 0;
+}
+
+//PETS
+if ($day == 0){
     // $_SESSION['pet_usage'] = [0]=phoenix [1]=snake
-    $_SESSION['pet_usage'] = array("false", "false");
+    $_SESSION['pet_usage'] = array(false, false);
     $_SESSION['piggy_bank'] = 0;
 }
 

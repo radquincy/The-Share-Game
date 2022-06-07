@@ -8,7 +8,7 @@
 @$signin = $_SESSION['signin'];
 
 //? game version 
-$game_version = '6.0 Pre-7.1';
+$game_version = '6.0 Pre-7';
 
 $current_dir = $_SERVER['SCRIPT_NAME'];
 $page_name = basename($current_dir,'.php');
@@ -19,19 +19,19 @@ $page_name_1 = str_replace('_',' ',$page_name);
 $read_page_name = ucwords($page_name_1);
 echo '<title>Shares Game - '.$read_page_name.'</title>';
 
-$modular_dir = $modular_dir - 3;
+$modular_dir = $modular_dir - 6;
 $x = 0;
 $dir = '';
 
 
 while($x < $modular_dir ){
 $x++;
-$dir = '../'.$dir;
+$dir = "../$dir";
 }
 
 echo '<link rel="stylesheet" href="'.$dir.'css/stylesheet.css">';
 echo '<link href="'.$dir.'images/icon/favicon.ico" rel="icon" type="image/x-icon" />';
-require_once $dir.'extras/important/connect.php';
+require_once($dir.'extras/important/connect.php');
 
 
 

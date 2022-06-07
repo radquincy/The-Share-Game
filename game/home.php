@@ -66,7 +66,7 @@ echo "<br><br><h2 style='font-size: 18px; text-align: left;'> Welcome, ". $usern
 <form method="post">
 <input type="button" onclick="location='../versions_page.php'" value="All Game Versions and Changes">
 <br>
-<input type="button" onclick="location='../howto.php'" value="How to Play and Tips">
+<input type="button" onclick="location='../how_to.php'" value="How to Play and Tips">
 </form>
 
 </body>

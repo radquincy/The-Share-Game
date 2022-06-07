@@ -1,5 +1,5 @@
 <?php
-require('../require_me.php');
+require('require_me.php');
 
 //conect to the database
 $host = "localhost";

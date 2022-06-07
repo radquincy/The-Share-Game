@@ -1,6 +1,8 @@
 <?php
 //number to letter
-require_once('../important/require_me.php');
+if($page_name != 'game'){
+    require('../important/require_me.php');
+}
 
 $n = '';
 $m = '';

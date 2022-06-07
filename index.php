@@ -30,7 +30,7 @@ require('extras/important/require_me.php');
         <p>Or look at our resources</p>
         <input type="button" onclick="location='versions_page.php'" value="All Game Versions and Changes">
         <br>
-        <input type="button" onclick="location='howto.php'" value="How to Play and Tips">
+        <input type="button" onclick="location='how_to.php'" value="How to Play and Tips">
     </form>
 
 </body>

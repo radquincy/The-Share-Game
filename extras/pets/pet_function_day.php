@@ -1,6 +1,7 @@
 <?php
-
-require('../important/require_me.php');
+if($page_name != 'game'){
+    require('../important/require_me.php');
+}
 
 //!NOTES:
 // $_SESSION['pet_usage'] = [0]=phoenix [1]=snake
@@ -108,7 +109,7 @@ switch($pet){
     break;
     case 'snake':
         $snake = $_SESSION['pet_usage'][1];
-        if($snake == "false"){
+        if($snake == false){
             $money = $money + ($rentprice / 100);
             $snake_death = rand(1,1000);
             if ($snake_death == 1){
@@ -118,6 +119,12 @@ switch($pet){
                     your snake was killed, you no longer get the snakes buff
                 </div>";
             }
+        }
+        if($snake == true){
+            echo "<div class=\"note_warn\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            Your Snake is no longer alive to help you, select a new pet.
+            </div>";
         }
         
     break;
@@ -172,10 +179,10 @@ switch($pet){
     break;
     case 'phoenix':
         $phoenix = $_SESSION['pet_usage'][0];
-        if($phoenix == "false"){
+        if($phoenix == false){
             //add rent payment until death
             if ($rentday == 0 && $money < $rentprice){
-                $money = $money + ($rentprice + ($rentprice / 100 * 75));
+                $money = $money + ($rentprice + (($rentprice / 100) * 75));
                 $_SESSION['pet_usage'][0] = "true";
                 echo "<div class=\"note_medium\">
                 <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
@@ -183,7 +190,7 @@ switch($pet){
                 </div>";
             }
         }
-        if ($phoenix == true){
+        if($phoenix == true){
             echo "<div class=\"note_warn\">
             <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
             Your Phoenix has left you forever select a new pet.
