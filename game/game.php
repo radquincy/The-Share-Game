@@ -1,23 +1,18 @@
-<!DOCTYPE html>
 <?php 
 
 require('../extras/important/require_me.php');
 $_SESSION['lose'] = true;
 ?>
-
-<head>
-    <title>Shares Game - Game</title>
-</head>
+<!DOCTYPE html>
 <body game>
 
 <!--sidebar-->
-
 <form method='POST' id="sidebar">
     
         <input type="submit" name="nextday" value="Next Day!">
         <input type="button" onclick="location='pets.php'" value="Pets Menu">
         <?php 
-            if (!empty($_SESSION['pets'])){
+            if (!empty($_SESSION['pets'] && $_SESSION['pets'] !== 'none')){
                 echo 'Pet Selected: '.$_SESSION['pets'];
                 $pet_img = $_SESSION['pets'];
                 echo "<img src='../images/pets/$pet_img.png' style='width: 120px;'>";
@@ -37,7 +32,6 @@ $_SESSION['lose'] = true;
     
 <div id="main_content"> 
 <?php
-
 
 //collect data from database and check if its the same as your pc name
 $data = mysqli_query($connection,"SELECT * FROM savegame WHERE UserKey = '$userkey';");
@@ -62,20 +56,12 @@ if (!empty($_SESSION['session'])){
     //last price +/-
     @$sale1pricelast = $_SESSION['sale1pricelast'];
     @$sale2pricelast = $_SESSION['sale2pricelast'];
+    @$pet = $_SESSION['pets'];
 }
 
 if(empty($day)){
     $day = 0;
 }
-
-//PETS
-if ($day == 0){
-    // $_SESSION['pet_usage'] = [0]=phoenix [1]=snake
-    $_SESSION['pet_usage'] = array(false, false);
-    $_SESSION['piggy_bank'] = 0;
-}
-
-
 if(empty($_SESSION['session'])){
     $_SESSION['session'] = 1;
 
@@ -90,6 +76,51 @@ if(empty($_SESSION['session'])){
         @$rentprice = $_SESSION['rentprice'];
     }
 }
+
+//PETS
+require('../extras/pets/validate_pet.php');
+if ($day == 0){
+    // $_SESSION['pet_usage'] = [0]=phoenix [1]=snake
+    $_SESSION['pet_usage'] = array(false, false);
+    $_SESSION['piggy_bank'] = 0;
+}
+
+//? Pet Unlocking
+
+        $user_pet_data = mysqli_query($connection,"SELECT * FROM sg_pets WHERE UserKey = '$userkey';");
+        $user_pet_info = mysqli_fetch_array( $user_pet_data );
+
+    
+    if($money >= 1000000){
+        if($user_pet_info['goldfish'] == 0){
+            mysqli_query ($connection,"UPDATE sg_pets SET goldfish = 1 WHERE UserKey = '$userkey'");
+            echo "<div class=\"note_good\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                You Unlocked the Goldfish pet!
+            </div>";
+        }
+    }
+    if($money >= 1000000000){
+        if($user_pet_info['bird'] == 0){
+            mysqli_query ($connection,"UPDATE sg_pets SET bird = 1 WHERE UserKey = '$userkey'");
+            echo "<div class=\"note_good\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                You Unlocked the Bird pet!
+            </div>";
+        }
+    }
+    if($money >= pow(10,15)){
+        if($user_pet_info['pig'] == 0){
+            mysqli_query ($connection,"UPDATE sg_pets SET pig = 1 WHERE UserKey = '$userkey'");
+            echo "<div class=\"note_good\">
+                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+                You Unlocked the Pig pet!
+            </div>";
+        }
+    }
+
+
+
 
 
 //rent day ----- Lose Game
@@ -164,8 +195,31 @@ if (isset($_POST["nextday"])){
     
     require("../extras/num_letters/rent_price.php");
 
-    
+  //? day based pets 
+  if($day >= 100){
+    if($user_pet_info['monkey'] == 0){
+        mysqli_query ($connection,"UPDATE sg_pets SET monkey = 1 WHERE UserKey = '$userkey'");
+        echo "<div class=\"note_good\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            You Unlocked the Monkey pet!
+        </div>";
+    }
+}
+if($day >= 2555){
+    if($user_pet_info['rock'] == 0){
+        mysqli_query ($connection,"UPDATE sg_pets SET rock = 1 WHERE UserKey = '$userkey'");
+        echo "<div class=\"note_good\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            You Unlocked the Rock pet!
+        </div>";
+    }
+} 
 ?>
+
+
+
+
+
 
 <br><br>
 <form method="post">
@@ -238,11 +292,11 @@ function resetGame(){
 if (isset($_POST["nextday"]) || isset($_POST["save"])){
 
 if ($info['UserKey'] == $userkey){
-mysqli_query ($connection,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast' WHERE UserKey = '$userkey'");
+mysqli_query ($connection,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast', last_pet = '$pet' WHERE UserKey = '$userkey'");
 
 }else{
-mysqli_query ($connection,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast) 
-VALUES('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast')");
+mysqli_query ($connection,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast,last_pet) 
+VALUES('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast','$pet')");
 }
 //save the stats on the game you are playing
     if($day > 0 && $networth > 0){

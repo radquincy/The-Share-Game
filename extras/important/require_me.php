@@ -8,7 +8,7 @@
 @$signin = $_SESSION['signin'];
 
 //? game version 
-$game_version = '6.0 Pre-7.1';
+$game_version = '6.0 Pre-8';
 
 $current_dir = $_SERVER['SCRIPT_NAME'];
 $page_name = basename($current_dir,'.php');
@@ -46,7 +46,7 @@ if (in_array($page_name, $sign_in_true)){
 }
 
 //? check for incorrect page usage
-$no_page_access = array('require_me','needed','connect','money','net_worth','rent_price','share1','share2','pet_function_day','pet_function_rent','price_change','load','button_functions','data_test','generate_code');
+$no_page_access = array('require_me','needed','connect','money','net_worth','rent_price','share1','share2','pet_function_day','pet_function_rent','price_change','load','button_functions','data_test','generate_code','validate_pet');
 if (in_array($page_name, $no_page_access)){
   session_destroy();
   header( "refresh:0; url=".$dir."index.php");

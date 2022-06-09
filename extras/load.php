@@ -27,6 +27,9 @@ if ($info['UserKey'] == $userkey && $info['day'] > 0) {
     //last price +/-
     @$sale1pricelast = $info['share1pricelast']; 
     @$sale2pricelast = $info['share2pricelast'];
+    //last pet
+    $_SESSION['pets'] = $info['last_pet'];
+    $pet = $_SESSION['pets'];
     
 }else{
     @$money = 500;
@@ -47,14 +50,15 @@ if ($info['UserKey'] == $userkey && $info['day'] > 0) {
     @$networth = 0;
     @$sale1x = 0;
     @$sale2x = 0;
+    @$pet = '';
 }
 
 if ($info['UserKey'] == $userkey){
-    mysqli_query ($connection,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast' WHERE UserKey = '$userkey'");
+    mysqli_query ($connection,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast', last_pet = '$pet' WHERE UserKey = '$userkey'");
     
     }else{
 
-    mysqli_query ($connection,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast) VALUES ('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast')");
+    mysqli_query ($connection,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast,last_pet) VALUES ('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast','$pet')");
     }
 
     

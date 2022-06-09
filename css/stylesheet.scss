@@ -109,6 +109,7 @@ input[type="button"] {
 	flex-wrap: nowrap;
 	width: 100%;
 	height: 100%;
+	align-content: flex-start;
 	.topheadingmaingame {
 		background-color: var(--HeadingBackGroundColour);
 		text-align: center;
@@ -124,6 +125,7 @@ input[type="button"] {
 		text-align: center;
 		max-width: 100%;
 		flex-wrap: wrap;
+
 	}
 }
 

@@ -15,13 +15,13 @@ require('../extras/important/require_me.php');
 <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"></div>
 
 <?php
+echo "<div class=\"note_good\">
+<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+all pets now need to be unlocked!
+</div>";
 echo "<div class=\"note_warn\">
 <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-all available pets will be unlocked until it is closer to the full release where you have to unlock them (they will be wiped)
-</div>";
-echo "<div class=\"note_medium\">
-<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-some pet descriptions will not be correct due to balancing and pet changes  
+There will be changes to this menu soon. NOTE: it looks like all the pets are unlocked but they are not
 </div>";
 ?>
 <br><br>
@@ -44,6 +44,7 @@ some pet descriptions will not be correct due to balancing and pet changes
         <option value="phoenix">Phoenix</option>
         <option value="snake">Snake</option>
         <option value="pig">Pig</option>
+        <option value="none">None</option>
     </select>
     <input type='submit' name='confirm_pet' value='Confirm Pet'>
 </form>
