@@ -62,6 +62,9 @@ if (!empty($_SESSION['session'])){
 if(empty($day)){
     $day = 0;
 }
+
+
+
 if(empty($_SESSION['session'])){
     $_SESSION['session'] = 1;
 
@@ -76,6 +79,7 @@ if(empty($_SESSION['session'])){
         @$rentprice = $_SESSION['rentprice'];
     }
 }
+
 
 //PETS
 require('../extras/pets/validate_pet.php');
@@ -146,8 +150,7 @@ if ($day == 0){
             $rentprice = $rentprice + @$rent_price_increase;
             $rentprice = $rentprice - @$rent_price_discount;
 
-            round($rentprice,0);
-            round($money,0);
+            
             $rentday = 30;
             $rentday = $rentday + @$rent_day_change;
             /*echo "<div class='warning'>Money for Rent was Taken</div>";*/
@@ -162,7 +165,8 @@ if ($day == 0){
         }
     }
 
-
+    floor($rentprice);
+    floor($money);
 
 //what each button does
 require('../extras/button_functions.php');
@@ -274,9 +278,14 @@ Share 2 Owned:<?php echo $sale2L?><br>
 $networth = ($sale1 * $sale1price) + ($sale2 * $sale2price) + $money; 
 
 require("../extras/num_letters/net_worth.php");
+
+$piggy_bank = $_SESSION['piggy_bank'];
+if(empty(@$piggy_bank)){
+    $piggy_bank = 0;
+}else{
+}
+
 ?>
-
-
 
 
 <!--javascript to confirm the reset of the game-->
@@ -292,11 +301,11 @@ function resetGame(){
 if (isset($_POST["nextday"]) || isset($_POST["save"])){
 
 if ($info['UserKey'] == $userkey){
-mysqli_query ($connection,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast', last_pet = '$pet' WHERE UserKey = '$userkey'");
+mysqli_query ($connection,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast', last_pet = '$pet', piggy_bank = '$piggy_bank' WHERE UserKey = '$userkey'");
 
 }else{
-mysqli_query ($connection,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast,last_pet) 
-VALUES('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast','$pet')");
+mysqli_query ($connection,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast,last_pet,piggy_bank) 
+VALUES('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast','$pet','$piggy_bank')");
 }
 //save the stats on the game you are playing
     if($day > 0 && $networth > 0){

@@ -23,6 +23,8 @@
     //last price +/-
     @$_SESSION['sale1pricelast'] = null;
     @$_SESSION['sale2pricelast'] = null;
+    //piggy bank
+    @$_SESSION['piggy_bank'] = null;
 
 ?>
 

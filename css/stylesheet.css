@@ -198,6 +198,8 @@ input[type="email"] {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   font-size: 30px;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 #pet_grid > div {

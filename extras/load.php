@@ -30,6 +30,7 @@ if ($info['UserKey'] == $userkey && $info['day'] > 0) {
     //last pet
     $_SESSION['pets'] = $info['last_pet'];
     $pet = $_SESSION['pets'];
+    $_SESSION['piggy_bank'] = $info['piggy_bank'];
     
 }else{
     @$money = 500;

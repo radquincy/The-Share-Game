@@ -14,16 +14,6 @@ require('../extras/important/require_me.php');
 <!--Headings-->
 <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"></div>
 
-<?php
-echo "<div class=\"note_good\">
-<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-all pets now need to be unlocked!
-</div>";
-echo "<div class=\"note_warn\">
-<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-There will be changes to this menu soon. NOTE: it looks like all the pets are unlocked but they are not
-</div>";
-?>
 <br><br>
 <h1>Pets</h1>
 
@@ -33,18 +23,36 @@ There will be changes to this menu soon. NOTE: it looks like all the pets are un
 <!--select pet-->
 <form method="POST">
     <select name="pets" id="pets" class='pets' style="width:15%" required>
+    <?php 
+        $user_pet_data = mysqli_query($connection,"SELECT * FROM sg_pets WHERE UserKey = '$userkey';");
+        $user_pet_info = mysqli_fetch_array( $user_pet_data );
+
+    ?>
         <option value="">Select an option</option>
-        <option value="dog">Dog</option>
+        <?php 
+            $pet_list = array('dog', 'cat', 'goldfish','monkey','pig','turtle','bird','snake','rock','phoenix','dragon','egg');
+            foreach($pet_list as $pet_var){    
+                $user_pet_data = mysqli_query($connection,"SELECT * FROM sg_pets WHERE UserKey = '$userkey'");
+                $user_pet_info = mysqli_fetch_array( $user_pet_data );
+                if($user_pet_info["$pet_var"] == 1){
+                    echo "<option value=\"$pet_var\">$pet_var</option>";
+                }else{
+
+                }
+                
+            }
+        ?>
+        <!--<option value="dog">Dog</option>
         <option value="rock">Rock</option>    
         <option value="bird">Bird</option>
         <option value="cat">Cat</option>  
         <option value="goldfish">Goldfish</option>
-        <option value="monkey">Monkey</option>
         <option value="turtle">Turtle</option>
         <option value="phoenix">Phoenix</option>
         <option value="snake">Snake</option>
-        <option value="pig">Pig</option>
+        <option value="pig">Pig</option>-->
         <option value="none">None</option>
+
     </select>
     <input type='submit' name='confirm_pet' value='Confirm Pet'>
 </form>
@@ -61,55 +69,135 @@ There will be changes to this menu soon. NOTE: it looks like all the pets are un
 
 <div id='pet_grid'>
     <div class="tooltip" >
-        Dog<img src="../images/pets/dog.png" style="width: 100%;">
+        Dog
+        <?php 
+            if($user_pet_info['dog'] == 1){
+                echo '<img src="../images/pets/dog.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/dog.png" style="width: 100%;">';
+            }
+        ?>
+        
         <span class="tooltiptext" id='left'>
-  	        -Can Commonly give you $10 - $100<br>
-            -Can Uncommonly permanently increase the rent price by $5 - $50<br>
+        <?php 
+            if($user_pet_info['dog'] == 1){
+                echo '-Can Commonly give you $10 - $100<br>
+                -Can Uncommonly permanently increase the rent price by $5 - $50<br>';
+            }else{
+                echo '???';
+            }
+        ?>
             <div id='common'>[Common]</div>
         </span>
     </div>
     <div class="tooltip">
-        Cat<img src="../images/pets/cat.png" style="width: 100%;">
+        Cat
+        <?php 
+            if($user_pet_info['cat'] == 1){
+                echo '<img src="../images/pets/cat.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/cat.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext">
-            -50% of the time gives you a 5% discount to rent price<br>
-            -But can uncommonly increase rent price permanently by 0-7.5% <br>
+        <?php 
+            if($user_pet_info['cat'] == 1){
+                echo '-50% of the time gives you a 5% discount to rent price<br>
+                -But can uncommonly increase rent price permanently by 0-7.5% <br>';
+            }else{
+                echo '???';
+            }
+        ?>
             <div id='common'>[Common]</div>
 
         </span>
     </div>
     <div class="tooltip">
-        Goldfish<img src="../images/pets/goldfish.png" style="width: 100%;">
+        Goldfish
+        <?php 
+            if($user_pet_info['goldfish'] == 1){
+                echo '<img src="../images/pets/goldfish.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/goldfish.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext">
-            -Gives you 1% of your rent as money each day<br>
-            -Increases rent by 10%<br>
+        <?php 
+            if($user_pet_info['goldfish'] == 1){
+                echo '-Gives you 1% of your rent as money each day<br>
+                -Increases rent by 10%<br>';
+            }else{
+                echo '???';
+            }
+        ?>
+            
             <div id="uncommon">[Uncommon]</div>
 
         </span>
     </div>
     <div class="tooltip">
-        Monkey<img src="../images/pets/monkey.png" style="width: 100%;">
+        Monkey
+        <?php 
+            if($user_pet_info['monkey'] == 1){
+                echo '<img src="../images/pets/monkey.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/monkey.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext">
-            -Gives you -5 to +5 extra rent days.<br>
+        <?php 
+            if($user_pet_info['monkey'] == 1){
+                echo '-Gives you -5 to +5 extra rent days.<br>';
+            }else{
+                echo '???';
+            }
+        ?>
             <div id='uncommon'>[Uncommon]</div>
 
 
         </span>
     </div>
     <div class="tooltip">
-        Pig<img src="../images/pets/pig.png" style="width: 100%;">
+        Pig
+        <?php 
+            if($user_pet_info['pig'] == 1){
+                echo '<img src="../images/pets/pig.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/pig.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext">
-            -Will save 1% of your money to a piggy bank everyday.<br>
-            -if you are going to lose the pig will smash the piggy bank and use the money to hopefully save you.<br>
+        <?php 
+            if($user_pet_info['pig'] == 1){
+                echo '-Will save 1% of your money to a piggy bank everyday.<br>
+                -if you are going to lose the pig will smash the piggy bank and use the money to hopefully save you.<br>';
+            }else{
+                echo '???';
+            }
+        ?>
             <div id='epic'>[Epic]</div>
 
 
         </span>
     </div>
     <div class="tooltip" >
-        Turtle<img src="../images/pets/turtle.png" style="width: 100%;">
+        Turtle
+        <?php 
+            if($user_pet_info['turtle'] == 1){
+                echo '<img src="../images/pets/turtle.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/turtle.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext" id="right">
-            -Lets you have 5-15 more days to pay for rent.<br>
-            -Increases rent price by 10%.<br>
+        <?php 
+            if($user_pet_info['turtle'] == 1){
+                echo '-Lets you have 5-15 more days to pay for rent.<br>
+                -Increases rent price by 10%.<br>';
+            }else{
+                echo '???';
+            }
+        ?>
             <div id='rare'>[Rare]</div>
 
         </span>
@@ -118,60 +206,137 @@ There will be changes to this menu soon. NOTE: it looks like all the pets are un
 
 <div id='pet_grid'>
     <div class="tooltip">
-        Bird<img src="../images/pets/bird.png" style="width: 100%;">
+        Bird
+        <?php 
+            if($user_pet_info['bird'] == 1){
+                echo '<img src="../images/pets/bird.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/bird.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext" id="left">
-            -Can uncommonly give you a cheque that has 0% - 30% of your rent price<br>
+        <?php 
+            if($user_pet_info['bird'] == 1){
+                echo '-Can uncommonly give you a cheque that has 0% - 30% of your rent price<br>';
+            }else{
+                echo '???';
+            }
+        ?>
             <div id='rare'>[Rare]</div>
 
         </span>
     </div>
     <div class="tooltip">
-        Snake<img src="../images/pets/snake.png" style="width: 100%;">
+        Snake
+        <?php 
+            if($user_pet_info['snake'] == 1){
+                echo '<img src="../images/pets/snake.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/snake.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext">
-            -Gives you +1% rent price as profit each day.<br>
-            -Has a rare chance of being killed making you lose the buff.<br>
+        <?php 
+            if($user_pet_info['snake'] == 1){
+                echo '-Gives you +1% rent price as profit each day.<br>
+                -Has a rare chance of being killed making you lose the buff.<br>';
+            }else{
+                echo '???';
+            }
+        ?>
             <div id='epic'>[Epic]</div>
 
         </span>
     </div>
     <div class="tooltip">
-        Rock<img src="../images/pets/rock.png" style="width: 100%;">
+        Rock
+        <?php 
+            if($user_pet_info['rock'] == 1){
+                echo '<img src="../images/pets/rock.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/rock.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext">
-            -Has a uncommon chance to have an ability activated:<br>
+        <?php 
+            if($user_pet_info['rock'] == 1){
+                echo '-Has a uncommon chance to have an ability activated:<br>
 	            • Adds +1 day until rent is due<br>
 	            • Gives you +2% rent price as profit<br>
 	            • Can give you 1-5 of any share<br>
-	            • Reduces rent price by 1% permanently<br>
+	            • Reduces rent price by 1% permanently<br>';
+            }else{
+                echo '???';
+            }
+        ?>
             <div id='epic'>[Epic]</div>
 
 
         </span>
     </div>
     <div class="tooltip">
-        Phoenix<img src="../images/pets/phoenix.png" style="width: 100%;">
+        Phoenix
+        <?php 
+            if($user_pet_info['phoenix'] == 1){
+                echo '<img src="../images/pets/phoenix.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/phoenix.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext">
-            -Pays for 100% of your rent and 25% of your next rent once you would lose<br>
-            -The ability has one use<br>
-            -Adds +10% rent payment until its ability is used<br>
+        <?php 
+            if($user_pet_info['phoenix'] == 1){
+                echo '-Pays for 100% of your rent and 25% of your next rent once you would lose<br>
+                -The ability has one use<br>
+                -Adds +10% rent payment until its ability is used<br>';
+            }else{
+                echo '???';
+            }
+        ?>
             <div id='legendary'>[Legendary]</div>
 
 
         </span>
     </div>
     <div class="tooltip">
-        Dragon<img src="../images/pets/dragon.png" style="width: 100%;">
+        Dragon
+        <?php 
+            if($user_pet_info['dragon'] == 1){
+                echo '<img src="../images/pets/dragon.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/dragon.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext">
-            ???<br>
-            will be release later<br>
+        <?php 
+            if($user_pet_info['dragon'] == 1){
+                echo 'pet buffs / de buffs to go here';
+            }else{
+                echo '??? <br> Pet not finished';
+            }
+        ?>
+
             <div id='mythic'>[Mythic]</div>
 
         </span>
     </div>
     <div class="tooltip">
-        Egg<img src="../images/pets/eggs.png" style="width: 100%;">
+        Egg
+        <?php 
+            if($user_pet_info['egg'] == 1){
+                echo '<img src="../images/pets/egg.png" style="width: 100%;">';
+            }else{
+                echo '<img src="../images/pets/unlock/egg.png" style="width: 100%;">';
+            }
+        ?>
         <span class="tooltiptext" id='right'>
-            ???<br>
-            will be released later<br>
+        <?php 
+            if($user_pet_info['dog'] == 1){
+                echo 'pet buffs/de buffs to go here';
+            }else{
+                echo '??? <br> Pet not finished';
+            }
+        ?>
             <div id='unique'>[Unique]</div>
 
         </span>
