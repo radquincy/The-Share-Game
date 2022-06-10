@@ -8,7 +8,7 @@
 @$signin = $_SESSION['signin'];
 
 //? game version 
-$game_version = '6.0 Pre-7';
+$game_version = '6.0 Pre-8';
 
 $current_dir = $_SERVER['SCRIPT_NAME'];
 $page_name = basename($current_dir,'.php');

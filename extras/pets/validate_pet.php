@@ -7,15 +7,15 @@
     //}
     @$pet = $_SESSION['pets'];
 
-    $user_pet_data = mysqli_query($connection,"SELECT * FROM sg_pets WHERE UserKey = '$userkey';");
-    $user_pet_info = mysqli_fetch_array( $user_pet_data );
+    $user_pet_data2 = mysqli_query($connection,"SELECT * FROM sg_pets WHERE UserKey = '$userkey';");
+    $user_pet_info2 = mysqli_fetch_array( $user_pet_data2 );
 
-    if(empty($user_pet_info)){
+    if(empty($user_pet_info2)){
         mysqli_query ($connection,"INSERT INTO sg_pets (UserKey) VALUES('$userkey')");
     }
 
     if(!empty($pet)||$pet !== 'none'){
-        if (@$user_pet_info["$pet"] == 1){
+        if (@$user_pet_info2["$pet"] == 1){
         }elseif($pet !== 'none'){
             $_SESSION['pets'] = 'none';
             echo "<div class=\"note_warn\">
