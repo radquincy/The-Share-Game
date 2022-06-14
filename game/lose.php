@@ -2,9 +2,7 @@
 <?php 
 require('../extras/important/require_me.php');
 ?>
-<head>
-    <title>Shares Game</title>
-</head>
+
 <body style="text-align: center">
     <!--Headings-->
     <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"><br>YOU LOSE!</div>

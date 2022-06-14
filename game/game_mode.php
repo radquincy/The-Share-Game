@@ -21,7 +21,7 @@ Pick a Game Mode
 <form method="POST">
 <div class="tooltip">
     <input type="submit" name="normal" value="normal difficulty">
-        <span class="tooltiptext">
+        <span class="tooltiptext_mode">
             normal difficulty<br>
             the normal game mode
         </span>
@@ -29,7 +29,7 @@ Pick a Game Mode
 
 <div class="tooltip">
     <input type="submit" name="hard" value="Hard difficulty">
-        <span class="tooltiptext">
+        <span class="tooltiptext_mode">
             start with $100 instead of $500
             everything else is the same as normal mode
         </span>
@@ -37,7 +37,7 @@ Pick a Game Mode
 
 <div class="tooltip">
     <input type="submit" name="1dollar" value="$1 challenge">
-        <span class="tooltiptext">
+        <span class="tooltiptext_mode">
             start with $1 and a rent price of $1
             everything else is the same as normal mode
         </span>

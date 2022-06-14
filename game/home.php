@@ -35,7 +35,7 @@
     <?php
     echo "<div class=\"note_medium\">
             <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-            Warning, this is a pre release and there can be many problems, uncompleted features and items that shouldn't be in the game. if you find any bugs <a href='../account/report.php'> Please Report them here</a>
+            This will most likely be the last pre release, if anny error messages pop up or anything doesnt feel right <a href='../account/report.php'>Please Report it here</a>
         </div>";   
     ?>
 
