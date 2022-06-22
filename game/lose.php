@@ -128,6 +128,10 @@ require('../extras/important/require_me.php');
     //last price +/-
     @$_SESSION['sale1pricelast'] = null;
     @$_SESSION['sale2pricelast'] = null;
+    //last pet
+    @$_SESSION['pets'] = '';
+    //piggy piggy_bank
+    $_SESSION['piggy_bank'] = null;
     ?>
 
     

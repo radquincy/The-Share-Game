@@ -42,15 +42,6 @@ require('../extras/important/require_me.php');
                 
             }
         ?>
-        <!--<option value="dog">Dog</option>
-        <option value="rock">Rock</option>    
-        <option value="bird">Bird</option>
-        <option value="cat">Cat</option>  
-        <option value="goldfish">Goldfish</option>
-        <option value="turtle">Turtle</option>
-        <option value="phoenix">Phoenix</option>
-        <option value="snake">Snake</option>
-        <option value="pig">Pig</option>-->
         <option value="none">None</option>
 
     </select>
@@ -331,7 +322,7 @@ require('../extras/important/require_me.php');
         ?>
         <span class="tooltiptext" id='right'>
         <?php 
-            if($user_pet_info['dog'] == 1){
+            if($user_pet_info['egg'] == 1){
                 echo 'pet buffs/de buffs to go here';
             }else{
                 echo '??? <br> Pet not finished';

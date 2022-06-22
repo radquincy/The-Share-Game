@@ -1,9 +1,9 @@
+<!DOCTYPE html> 
 <?php 
-
 require('../extras/important/require_me.php');
 $_SESSION['lose'] = true;
 ?>
-<!DOCTYPE html>
+
 <body game>
 
 <!--sidebar-->
@@ -57,6 +57,8 @@ if (!empty($_SESSION['session'])){
     @$sale1pricelast = $_SESSION['sale1pricelast'];
     @$sale2pricelast = $_SESSION['sale2pricelast'];
     @$pet = $_SESSION['pets'];
+    
+    @$game_mode = $_SESSION['game_mode'];
 }
 
 if(empty($day)){
@@ -122,8 +124,6 @@ if ($day == 0){
             </div>";
         }
     }
-
-
 
 
 
@@ -218,6 +218,15 @@ if($day >= 2555){
         </div>";
     }
 } 
+if($day >= 1000 && $game_mode == '1dollar'){
+    if($user_pet_info['rock'] == 0){
+        mysqli_query ($connection,"UPDATE sg_pets SET rock = 1 WHERE UserKey = '$userkey'");
+        echo "<div class=\"note_good\">
+            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+            You Unlocked the Rock pet!
+        </div>";
+    }
+} 
 ?>
 
 
@@ -247,24 +256,24 @@ if($day >= 2555){
 <!--Sale1--><br>
 Share 1 price:$<?php echo $sale1price?><br>
 Share 1 Owned:<?php echo $sale1L?><br>
-<input type="submit" name="buysale1" value="Buy Share 1! (x1)">
-<input type="submit" name="sellsale1" value="Sell Share 1! (x1)"><br>
-<input type="submit" name="buysale1%50" value="Buy Share 1! (50%)">
-<input type="submit" name="sellsale1%50" value="Sell Share 1! (50%)"><br>
-<input type="submit" name="buysale1MAX" value="Buy Share 1! (MAX)">
-<input type="submit" name="sellsale1MAX" value="Sell Share 1! (MAX)"><br>
-<input type="submit" name="sellsale1rent" value="Sell Share 1! (Rent Price)">
+<input type="submit" name="buysale1" value="Buy Share 1! (x1)" id='game_button'>
+<input type="submit" name="sellsale1" value="Sell Share 1! (x1)" id='game_button'><br>
+<input type="submit" name="buysale1%50" value="Buy Share 1! (50%)" id='game_button'>
+<input type="submit" name="sellsale1%50" value="Sell Share 1! (50%)" id='game_button'><br>
+<input type="submit" name="buysale1MAX" value="Buy Share 1! (MAX)" id='game_button'>
+<input type="submit" name="sellsale1MAX" value="Sell Share 1! (MAX)" id='game_button'><br>
+<input type="submit" name="sellsale1rent" value="Sell Share 1! (Rent Price)" id='game_button'>
 
 <!--Sale2--><br><br>
 Share 2 price:$<?php echo $sale2price?><br>
 Share 2 Owned:<?php echo $sale2L?><br>
-<input type="submit" name="buysale2" value="Buy share 2! (x1)">
-<input type="submit" name="sellsale2" value="Sell Share 2! (x1)"><br>
-<input type="submit" name="buysale2%50" value="Buy Share 2! (50%)">
-<input type="submit" name="sellsale2%50" value="Sell Share 2! (50%)"><br>
-<input type="submit" name="buysale2MAX" value="Buy Share 2! (MAX)">
-<input type="submit" name="sellsale2MAX" value="Sell Share 2! (MAX)"><br>
-<input type="submit" name="sellsale2rent" value="Sell Share 2! (Rent Price)">
+<input type="submit" name="buysale2" value="Buy share 2! (x1)" id='game_button'>
+<input type="submit" name="sellsale2" value="Sell Share 2! (x1)" id='game_button'><br>
+<input type="submit" name="buysale2%50" value="Buy Share 2! (50%)" id='game_button'>
+<input type="submit" name="sellsale2%50" value="Sell Share 2! (50%)" id='game_button'><br>
+<input type="submit" name="buysale2MAX" value="Buy Share 2! (MAX)" id='game_button'>
+<input type="submit" name="sellsale2MAX" value="Sell Share 2! (MAX)" id='game_button'><br>
+<input type="submit" name="sellsale2rent" value="Sell Share 2! (Rent Price)" id='game_button'>
 </form>
 
 
@@ -301,11 +310,10 @@ function resetGame(){
 if (isset($_POST["nextday"]) || isset($_POST["save"])){
 
 if ($info['UserKey'] == $userkey){
-mysqli_query ($connection,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast', last_pet = '$pet', piggy_bank = '$piggy_bank' WHERE UserKey = '$userkey'");
-
+mysqli_query ($connection,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast', last_pet = '$pet', piggy_bank = '$piggy_bank', game_mode = '$game_mode' WHERE UserKey = '$userkey'");
 }else{
-mysqli_query ($connection,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast,last_pet,piggy_bank) 
-VALUES('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast','$pet','$piggy_bank')");
+mysqli_query ($connection,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast,last_pet,piggy_bank,game_mode) 
+VALUES('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast','$pet','$piggy_bank','$game_mode')");
 }
 //save the stats on the game you are playing
     if($day > 0 && $networth > 0){
@@ -391,6 +399,8 @@ if (isset($_POST['save'])){
     //last price +/-
     @$_SESSION['sale1pricelast'] = $sale1pricelast;
     @$_SESSION['sale2pricelast'] = $sale2pricelast;
+
+    @$_SESSION['piggy_bank'] = $piggy_bank;
 
     ?>
 </div>

@@ -17,6 +17,23 @@
 Pick a Game Mode
 </div>
 
+<style>
+    input[type="submit"]{
+        width: 12vw;
+        height: 6vh;
+        font-size: 1em;
+    }
+    input[type="button"]{
+        width: 12vw;
+        height: 6vh;
+        font-size: 1em;
+    }
+
+
+
+</style>
+
+
 <br>
 <form method="POST">
 <div class="tooltip">
@@ -47,7 +64,7 @@ Pick a Game Mode
 
 <p>Random difficulty (coming soon)</p>
 <!--<input type="button" name="normal" value=""><br>-->
-
+<br><br><br>
 <a href='home.php'>
     <input type="button" id='home' name='home' value='Home'>
 </a>
@@ -57,14 +74,17 @@ Pick a Game Mode
 
 if(isset($_POST['normal'])){
     header("Location: game.php");
+    $_SESSION['game_mode'] = 'normal';
 }
 if(isset($_POST['hard'])){
     $_SESSION['money'] = 100;
     header("Location: game.php");
+    $_SESSION['game_mode'] = 'hard';
 }
 if(isset($_POST['1dollar'])){
     $_SESSION['money'] = 1;
     $_SESSION['rentprice'] = 1;
+    $_SESSION['game_mode'] = '1dollar';
     
     header("Location: game.php");
 

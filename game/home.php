@@ -25,6 +25,10 @@
     @$_SESSION['sale2pricelast'] = null;
     //piggy bank
     @$_SESSION['piggy_bank'] = null;
+    //pets
+    @$_SESSION['pets'] = 'none';
+    //game mode
+    @$_SESSION['game_mode'] = null;
 
 ?>
 
@@ -33,10 +37,8 @@
     <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"></div>
 
     <?php
-    echo "<div class=\"note_medium\">
-            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-            This will most likely be the last pre release, if anny error messages pop up or anything doesnt feel right <a href='../account/report.php'>Please Report it here</a>
-        </div>";   
+    //notifications:
+  
     ?>
 
 
