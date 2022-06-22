@@ -33,7 +33,7 @@ if ($info['UserKey'] == $userkey && $info['day'] > 0) {
     //piggy bank
     $_SESSION['piggy_bank'] = $info['piggy_bank'];
     //game mode
-    $_SESSION['game_mode'] = $info['game_mode'];
+    @$_SESSION['game_mode'] = $info['game_mode'];
     $game_mode = $_SESSION['game_mode'];
     
 }else{
