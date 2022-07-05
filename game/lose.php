@@ -23,7 +23,7 @@ require('../extras/important/require_me.php');
         
         //?statistics save to database
         if($_SESSION['lose'] == true){
-            $data589 = mysqli_query($connection,"SELECT * FROM sg_stats WHERE UserKey = '$userkey';");
+            $data589 = mysqli_query($connect,"SELECT * FROM sg_stats WHERE UserKey = '$userkey';");
                 @$info589 = mysqli_fetch_array( $data589 );
 
             if ($info589['UserKey'] == $userkey){
@@ -45,9 +45,9 @@ require('../extras/important/require_me.php');
                 }
                 $GamesPlayed = $info589['games_played'] + 1;
 
-                mysqli_query ($connection,"UPDATE sg_stats SET high_score = '$HighScore', highest_day = '$HighestDay', highest_networth = '$HighestNetWorth', games_played = '$GamesPlayed' WHERE UserKey = '$userkey'");
+                mysqli_query ($connect,"UPDATE sg_stats SET high_score = '$HighScore', highest_day = '$HighestDay', highest_networth = '$HighestNetWorth', games_played = '$GamesPlayed' WHERE UserKey = '$userkey'");
             }else{
-                mysqli_query ($connection,"INSERT INTO sg_stats (UserKey, high_score, highest_day, highest_networth, games_played) VALUES('$userkey','$score','$day','$networth','1')");
+                mysqli_query ($connect,"INSERT INTO sg_stats (UserKey, high_score, highest_day, highest_networth, games_played) VALUES('$userkey','$score','$day','$networth','1')");
             }
         }
 
@@ -55,17 +55,17 @@ require('../extras/important/require_me.php');
 
 
         //pet unlock
-        $user_pet_data = mysqli_query($connection,"SELECT * FROM sg_pets WHERE UserKey = '$userkey';");
+        $user_pet_data = mysqli_query($connect,"SELECT * FROM sg_pets WHERE UserKey = '$userkey';");
         $user_pet_info = mysqli_fetch_array( $user_pet_data );
         if($user_pet_info['dog'] == 0){
-            mysqli_query ($connection,"UPDATE sg_pets SET dog = 1 WHERE UserKey = '$userkey'");
+            mysqli_query ($connect,"UPDATE sg_pets SET dog = 1 WHERE UserKey = '$userkey'");
             echo "<div class=\"note_good\">
                 <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
                 You Unlocked the Dog pet!
             </div>";
         }
         if($user_pet_info['cat'] == 0){
-            mysqli_query ($connection,"UPDATE sg_pets SET cat = 1 WHERE UserKey = '$userkey'");
+            mysqli_query ($connect,"UPDATE sg_pets SET cat = 1 WHERE UserKey = '$userkey'");
             echo "<div class=\"note_good\">
                 <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
                 You Unlocked the Cat pet!
@@ -73,7 +73,7 @@ require('../extras/important/require_me.php');
         }
         if($GamesPlayed >= 1000){
             if($user_pet_info['phoenix'] == 0){
-                mysqli_query ($connection,"UPDATE sg_pets SET phoenix = 1 WHERE UserKey = '$userkey'");
+                mysqli_query ($connect,"UPDATE sg_pets SET phoenix = 1 WHERE UserKey = '$userkey'");
                 echo "<div class=\"note_good\">
                     <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
                     You Unlocked the Phoenix pet!
@@ -82,7 +82,7 @@ require('../extras/important/require_me.php');
         }
         if($GamesPlayed >= 100){
             if($user_pet_info['snake'] == 0){
-                mysqli_query ($connection,"UPDATE sg_pets SET snake = 1 WHERE UserKey = '$userkey'");
+                mysqli_query ($connect,"UPDATE sg_pets SET snake = 1 WHERE UserKey = '$userkey'");
                 echo "<div class=\"note_good\">
                     <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
                     You Unlocked the Snake pet!
@@ -99,7 +99,7 @@ require('../extras/important/require_me.php');
     $sale2price = rand(10,60);
 
  
-    mysqli_query ($connection,"UPDATE savegame SET day = '0', rentduein = '30', rentprice = '100', money = '500', share1price = '$sale1price', share1owned = '0',share1pricelast = '0', share2price = '$sale2price', share2owned = '0', share2pricelast = '0' WHERE UserKey = '$userkey'");
+    mysqli_query ($connect,"UPDATE savegame SET day = '0', rentduein = '30', rentprice = '100', money = '500', share1price = '$sale1price', share1owned = '0',share1pricelast = '0', share2price = '$sale2price', share2owned = '0', share2pricelast = '0' WHERE UserKey = '$userkey'");
     
     
     

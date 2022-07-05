@@ -12,7 +12,7 @@ for($day = 0; $day <= 2000; $day++ ){
     require("price_change.php");
     echo ' '.$day.' ';
     //send to database
-    mysqli_query($connection,"INSERT INTO datatest (day,Share1Price,Share2Price) VALUES('$day','$sale1price','$sale2price')");
+    mysqli_query($connect,"INSERT INTO datatest (day,Share1Price,Share2Price) VALUES('$day','$sale1price','$sale2price')");
 
 
 }

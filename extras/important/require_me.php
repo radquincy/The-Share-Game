@@ -8,7 +8,7 @@
 @$signin = $_SESSION['signin'];
 
 //? game version 
-$game_version = '6.0';
+$game_version = '6.1';
 
 $current_dir = $_SERVER['SCRIPT_NAME'];
 $page_name = basename($current_dir,'.php');
@@ -19,20 +19,20 @@ $page_name_1 = str_replace('_',' ',$page_name);
 $read_page_name = ucwords($page_name_1);
 echo '<title>Shares Game - '.$read_page_name.'</title>';
 
-$modular_dir = $modular_dir - 3;
+$modular_dir -= 3;
 $x = 0;
 $dir = '';
 
 
 while($x < $modular_dir ){
-$x++;
-$dir = '../'.$dir;
+  $x++;
+  $dir = '../'.$dir;
 }
 
 echo '<link rel="stylesheet" href="'.$dir.'css/stylesheet.css">';
 echo '<link href="'.$dir.'images/icon/favicon.ico" rel="icon" type="image/x-icon" />';
 require_once $dir.'extras/important/connect.php';
-
+require_once $dir.'extras/assets/functions.php';
 
 
 //? check if user needs to be signed in
@@ -46,12 +46,11 @@ if (in_array($page_name, $sign_in_true)){
 }
 
 //? check for incorrect page usage
-$no_page_access = array('require_me','needed','connect','money','net_worth','rent_price','share1','share2','pet_function_day','pet_function_rent','price_change','load','button_functions','data_test','generate_code','validate_pet');
+$no_page_access = array('require_me','needed','connect','money','net_worth','rent_price','share1','share2','pet_function_day','pet_function_rent','price_change','load','button_functions','data_test','generate_code','validate_pet','functions','main_buttons','side_bar','rent_day');
 if (in_array($page_name, $no_page_access)){
   session_destroy();
-  header( "refresh:0; url=".$dir."index.php");
+  header("refresh:0; url=".$dir."index.php");
   exit();
 }
-
 
 ?>

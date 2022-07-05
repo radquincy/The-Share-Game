@@ -24,7 +24,7 @@ require('../extras/important/require_me.php');
 <form method="POST">
     <select name="pets" id="pets" class='pets' style="width:15%" required>
     <?php 
-        $user_pet_data = mysqli_query($connection,"SELECT * FROM sg_pets WHERE UserKey = '$userkey';");
+        $user_pet_data = mysqli_query($connect,"SELECT * FROM sg_pets WHERE UserKey = '$userkey';");
         $user_pet_info = mysqli_fetch_array( $user_pet_data );
 
     ?>
@@ -32,7 +32,7 @@ require('../extras/important/require_me.php');
         <?php 
             $pet_list = array('dog', 'cat', 'goldfish','monkey','pig','turtle','bird','snake','rock','phoenix','dragon','egg');
             foreach($pet_list as $pet_var){    
-                $user_pet_data = mysqli_query($connection,"SELECT * FROM sg_pets WHERE UserKey = '$userkey'");
+                $user_pet_data = mysqli_query($connect,"SELECT * FROM sg_pets WHERE UserKey = '$userkey'");
                 $user_pet_info = mysqli_fetch_array( $user_pet_data );
                 if($user_pet_info["$pet_var"] == 1){
                     echo "<option value=\"$pet_var\">$pet_var</option>";

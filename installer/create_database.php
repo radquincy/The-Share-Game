@@ -1,6 +1,6 @@
 <?php
 
-mysqli_query ($connection,"")
+mysqli_query ($connect,"")
 
 
 ?>

@@ -7,7 +7,7 @@
    $sale2price = rand(15,70);
 
 //collect data from database and check if its the same as your pc name
-$data = mysqli_query($connection,"SELECT * FROM savegame WHERE UserKey = '$userkey';");
+$data = mysqli_query($connect,"SELECT * FROM savegame WHERE UserKey = '$userkey';");
 $info = mysqli_fetch_array( $data );
 
 if ($info['UserKey'] == $userkey && $info['day'] > 0) {
@@ -59,11 +59,11 @@ if ($info['UserKey'] == $userkey && $info['day'] > 0) {
 }
 
 if ($info['UserKey'] == $userkey){
-    mysqli_query ($connection,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast', last_pet = '$pet' WHERE UserKey = '$userkey'");
+    mysqli_query ($connect,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast', last_pet = '$pet' WHERE UserKey = '$userkey'");
     
     }else{
 
-    mysqli_query ($connection,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast,last_pet) VALUES ('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast','$pet')");
+    mysqli_query ($connect,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast,last_pet) VALUES ('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast','$pet')");
     }
 
     

@@ -21,10 +21,10 @@ require ('../extras/important/connect.php');
 
 @$key = $_POST['userkey'];
 
-$data = mysqli_query($connection,"SELECT * FROM sgsignin WHERE username = '$username';");
+$data = mysqli_query($connect,"SELECT * FROM sgsignin WHERE username = '$username';");
 $info = mysqli_fetch_array( $data );
 
-$data2 = mysqli_query($connection,"SELECT * FROM sgsignin;");
+$data2 = mysqli_query($connect,"SELECT * FROM sgsignin;");
 $info2 = mysqli_fetch_array( $data2 );
 
 if (isset($_POST['submit'])){
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])){
             //password hashing
             $hashedpass = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
             //end of password hashing
-            mysqli_query ($connection,"INSERT INTO sgsignin (username, password, userkey) VALUES('$username','$hashedpass','$key')");
+            mysqli_query ($connect,"INSERT INTO sgsignin (username, password, userkey) VALUES('$username','$hashedpass','$key')");
             echo "<div class=\"note_good\">
             <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
             Account Created, Redirecting...

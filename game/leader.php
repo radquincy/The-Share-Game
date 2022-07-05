@@ -57,14 +57,14 @@
     </tr>
 <?php
 
-    $data = mysqli_query($connection,"SELECT * FROM sg_stats ORDER BY high_score DESC;");
+    $data = mysqli_query($connect,"SELECT * FROM sg_stats ORDER BY high_score DESC;");
     
 
 
 
 foreach($data as $value){ 
     $UserKeySearch = $value['UserKey'];
-    $data2 = mysqli_query($connection,"SELECT * FROM sgsignin WHERE userkey = '$UserKeySearch';");
+    $data2 = mysqli_query($connect,"SELECT * FROM sgsignin WHERE userkey = '$UserKeySearch';");
     $info2 = mysqli_fetch_array( $data2 );
     echo '<tr>';
     echo '<td>'.$info2["username"].'</td><td>'.$value["high_score"].'</td><td>'.$value["highest_networth"].'</td><td>'.$value["highest_day"].'</td><td>'.$value["games_played"].'</td>';

@@ -21,7 +21,7 @@ if(isset($_POST['submit_report'])){
 
         if (strlen($filtered_explanation) <= 600){
 
-            mysqli_query ($connection,"INSERT INTO sg_report (UserKey, category, explanation) 
+            mysqli_query ($connect,"INSERT INTO sg_report (UserKey, category, explanation) 
             VALUES('$userkey','$filtered_report_type','$filtered_explanation')");
 
             echo "<div class=\"note_good\">

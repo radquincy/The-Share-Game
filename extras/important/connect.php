@@ -6,8 +6,8 @@ $host = "localhost";
 $dbname = "sharesgame";
 $usernameDB = "root";
 $passwordDB = "";
-@$connection = mysqli_connect($host, $usernameDB, $passwordDB) or die("ERROR: Unable to connect to database");
-@mysqli_select_db($connection,$dbname) or die("ERROR: Unable to connect to database");
+@$connect = mysqli_connect($host, $usernameDB, $passwordDB) or die("ERROR: Unable to connect to database");
+@mysqli_select_db($connect,$dbname) or die("ERROR: Unable to connect to database");
 
 
 ?>

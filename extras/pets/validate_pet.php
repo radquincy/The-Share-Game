@@ -7,11 +7,11 @@
     //}
     @$pet = $_SESSION['pets'];
 
-    $user_pet_data2 = mysqli_query($connection,"SELECT * FROM sg_pets WHERE UserKey = '$userkey';");
+    $user_pet_data2 = mysqli_query($connect,"SELECT * FROM sg_pets WHERE UserKey = '$userkey';");
     $user_pet_info2 = mysqli_fetch_array( $user_pet_data2 );
 
     if(empty($user_pet_info2)){
-        mysqli_query ($connection,"INSERT INTO sg_pets (UserKey) VALUES('$userkey')");
+        mysqli_query ($connect,"INSERT INTO sg_pets (UserKey) VALUES('$userkey')");
     }
 
     if(!empty($pet)||$pet !== 'none'){

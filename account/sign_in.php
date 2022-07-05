@@ -1,17 +1,11 @@
 <?php  
 @session_destroy(); 
-require("../extras/important/connect.php");
+require("../extras/important/require_me.php");
 ?>
 
 <!DOCTYPE html>
 <link rel="stylesheet" href="../css/stylesheet.css">
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shares Game - Sign In</title>
-</head>
 <body>
     <!--Headings-->
     <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"></div>
@@ -21,10 +15,7 @@ require("../extras/important/connect.php");
 
 <?php
 @session_start();
-//open the storage container
 
-
-//dont let people into your vault
 if(!isset($_POST['username'])){
     $_SESSION['signin'] = 'false';
 }
@@ -32,41 +23,27 @@ if(!isset($_POST['username'])){
 //sanitize the variables 
 @$username = htmlspecialchars($_POST['username']);
 @$password = htmlspecialchars($_POST['password']);
-/*echo $username . ' ' . $password;*/
 
-
-//sorry whats your name again...
 if(empty($username)){
     $_SESSION['signin'] = 'false';
 }else{
-    //open boxes in your storage container
-    @$usernamedata = mysqli_query($connection,"SELECT * FROM sgsignin WHERE username = '$username';");
-    //read the documents in the boxes
-    @$info = mysqli_fetch_array($usernamedata);
+    $info = sgsignin_username($username,$connect);
 
-    //slightly change the documents
     if(strtolower($info['username'])==strtolower($username)){
-        //verify the words in the documents
         if(password_verify($password, $info['password'])) {
             $_SESSION['username'] = $info['username'];
             $_SESSION['key'] = $info['userkey'];
             $_SESSION['signin'] = 'true';
             header( "refresh:0; url=../game/home.php");
         }else{
-            echo "<div class=\"note_warn\">
-            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-            Incorrect Username or Password!
-            </div>"; 
-
             $_SESSION['signin'] = 'false';}
-}else{
-    sleep(2);
-        echo "<div class=\"note_warn\">
-            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-            Incorrect Username or Password!
-            </div>"; 
-    $_SESSION['signin'] = 'false';
-}
+            notification('warn','Incorrect Username or Password!');
+    }else{
+        $_SESSION['signin'] = 'false';
+        sleep(1);
+        notification('warn','Incorrect Username or Password!');
+
+    }
 }
 
 ?>

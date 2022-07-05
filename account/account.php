@@ -16,8 +16,8 @@
 //!UPDATE ACCOUNT PASSWORD
 if(isset($_POST['submitnewpass'])){
 
-    $usernamedata = mysqli_query($connection,"SELECT * FROM sgsignin WHERE username = '$username';");
-    $userinfo = mysqli_fetch_array($usernamedata) or die(mysqli_error($connection));
+    $usernamedata = mysqli_query($connect,"SELECT * FROM sgsignin WHERE username = '$username';");
+    $userinfo = mysqli_fetch_array($usernamedata) or die(mysqli_error($connect));
 
     @$ogpassword = filter_var($_POST['originalpassword'], FILTER_SANITIZE_STRING);
     @$newpassword1 = filter_var($_POST['newpassword1'], FILTER_SANITIZE_STRING); 
@@ -27,7 +27,7 @@ if(isset($_POST['submitnewpass'])){
         if (password_verify($ogpassword, $userinfo['password'])) {
             if ($newpassword1 == $newpassword2){
                 $hashedpass = password_hash($newpassword1, PASSWORD_BCRYPT, ['cost' => 14]);
-                mysqli_query ($connection,"UPDATE sgsignin SET password='$hashedpass' WHERE userkey ='$userkey'");
+                mysqli_query ($connect,"UPDATE sgsignin SET password='$hashedpass' WHERE userkey ='$userkey'");
                 echo "<div class=\"note_good\">
                 <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
                 Your Password was Updated.
@@ -55,19 +55,19 @@ if(isset($_POST['submitnewpass'])){
 //!UPDATE ACCOUNT USERNAME
 if(isset($_POST['submitnewusername'])){
     
-    $usernamedata2 = mysqli_query($connection,"SELECT * FROM sgsignin WHERE userkey = '$userkey';");
-    $userinfo2 = mysqli_fetch_array($usernamedata2) or die(mysqli_error($connection));
+    $usernamedata2 = mysqli_query($connect,"SELECT * FROM sgsignin WHERE userkey = '$userkey';");
+    $userinfo2 = mysqli_fetch_array($usernamedata2) or die(mysqli_error($connect));
 
     @$password_confirm = filter_var($_POST['name_change_pass'], FILTER_SANITIZE_STRING);
     @$new_username = filter_var($_POST['new_username'], FILTER_SANITIZE_STRING); 
 
-    $data_check = mysqli_query($connection,"SELECT * FROM sgsignin WHERE username = '$new_username';");
+    $data_check = mysqli_query($connect,"SELECT * FROM sgsignin WHERE username = '$new_username';");
     $username_check = mysqli_fetch_array( $data_check );
 
     if(!empty($new_username || $name_change_pass)){
         if (password_verify($password_confirm, $userinfo2['password'])) {
             if ($username_check['username'] !== $new_username || strtolower($username_check['username']) !== strtolower($new_username)){
-                mysqli_query ($connection,"UPDATE sgsignin SET username='$new_username' WHERE userkey ='$userkey'");
+                mysqli_query ($connect,"UPDATE sgsignin SET username='$new_username' WHERE userkey ='$userkey'");
                 $_SESSION['username'] = $new_username;
                 echo "<div class=\"note_good\">
                 <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 

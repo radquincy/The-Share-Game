@@ -2,7 +2,7 @@
 <?php require('../extras/important/require_me.php'); ?>
 
 <?php
-    $data = mysqli_query($connection,"SELECT * FROM savegame WHERE UserKey = '$userkey';");
+    $data = mysqli_query($connect,"SELECT * FROM savegame WHERE UserKey = '$userkey';");
     $info = mysqli_fetch_array( $data );
 
     if($info['day'] > 0){
