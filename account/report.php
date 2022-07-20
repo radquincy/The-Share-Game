@@ -52,7 +52,7 @@ if(isset($_POST['submit_report'])){
     some of the reasons of inappropriate use is false reports, multiple of the same report, reporting something that isn't a problem, inaccurate reports, ect.<br>
     please keep the report factual and non bias, and keep the explications as simple and short as possible<br>
 </p>
-<br><br>
+<br>
 
 <form method="POST">
     <select name="report_type" id="report_type" class='report_type' style='width:20%' required>
@@ -75,8 +75,6 @@ if(isset($_POST['submit_report'])){
 
 </form>
 
-
-
-<br><br>
+<p>The Report Wont Save when you go home and you haven't pressed 'Submit Report'.</p>
 <input type="button" onclick="location='../game/home.php'" value="Home">
 

@@ -1,13 +1,7 @@
 <?php
-//number to letter
-if($page_name != 'game'){
-    require('../important/require_me.php');
-}
 
-$n = '';
-$m = '';
-$r = '';    
-$n = $sale1;
+function num_to_letter($n){
+//number to letter
 
     if ($n >0 && $n < 1000){
         $m = $n;
@@ -85,10 +79,10 @@ $n = $sale1;
         $m = $r."SpD";
     }
     
-    
     else{
         $m = $n;
     }
-    $sale1L = $m;
-
+    
+    return $m;
+}
     ?>

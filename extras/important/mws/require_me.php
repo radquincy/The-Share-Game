@@ -33,7 +33,7 @@ echo '<link rel="stylesheet" href="'.$dir.'css/stylesheet.css">';
 echo '<link href="'.$dir.'images/icon/favicon.ico" rel="icon" type="image/x-icon" />';
 require_once $dir.'extras/important/connect.php';
 require_once $dir.'extras/assets/functions.php';
-
+require_once $dir.'extras/assets/num_letter.php';
 
 //? check if user needs to be signed in
 $sign_in_true = array('home','game','leader','lose','game_mode','pets','account','report');

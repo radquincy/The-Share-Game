@@ -34,4 +34,23 @@
     function unlock_pets($userkey, $connect, $pet){
         mysqli_query ($connect,"UPDATE sg_pets SET $pet = 1 WHERE UserKey = '$userkey'");
     }
+
+    function echo_pet_info($user_pet_info, $pet, $rarity, $unlocked_msg, $locked_msg){
+
+        if($user_pet_info["$pet"] == 1){
+            echo "<img src=\"../images/pets/$pet.png\" style=\"width: 100%;\">";
+        }else{
+            echo "<img src=\"../images/pets/unlock/$pet.png\" style=\"width: 100%;\">";
+        }
+
+        echo '<span class="tooltiptext">';
+        
+            if($user_pet_info["$pet"] == 1){
+                echo $unlocked_msg;
+            }else{
+                echo $locked_msg;
+            }
+            echo "<div id=\"$rarity\">[$rarity]</div>";
+        echo '</span>';
+    }
 ?>

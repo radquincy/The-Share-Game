@@ -45,18 +45,26 @@
 <div style="margin: 1%;">
 
 
-<input style="float: left;" type="button" onclick="location='../account/account.php'" value="Settings">
-<input style="float: left;" type="button" onclick="location='../index.php'" value="Log Out">
-<input style="float: left;" type="button" onclick="location='../account/report.php'" value="Report a Bug">
+<button id='square_button' onclick="location='../account/account.php'"> 
+    <img id='icon' src='../images/icon/settings-sliders.png'> 
+</button>
+
+<button id='square_button' onclick="location='../index.php'">
+    <img id='icon' src='../images/icon/power.png'> 
+</button>
+
+<button id='square_button' onclick="location='../account/report.php'">
+    <img id='icon' src='../images/icon/bug.png'> 
+</button>
 
 <?php
-echo "<br><br><h2 style='font-size: 18px; text-align: left;'> Welcome, ". $username."!</h2>";
+echo "<br><br><br><h2 style='font-size: 18px; text-align: left;'> Welcome, ". $username."!</h2>";
 ?>
 </div>
 
 
 <!--<p style="font-size: 18px;">The Shares Game is a game where you buy and sell shares to make money. If you dont make enough money by the end ot the rent period you lose</p>-->
-<br><br><br><br>
+<br><br><br>
 
 
 <form method="post">

@@ -34,21 +34,34 @@ body {
 }
 
 input[type="submit"],
-input[type="button"] {
+input[type="button"],
+button {
+	border-radius: 5px;
 	font-family: var(--FontFamily);
 	border-top-style: hidden;
 	border-right-style: hidden;
 	border-left-style: hidden;
 	border-bottom-style: hidden;
 	background-color: var(--ButtonBackGroundColour);
-	font-size: 80%;
+	font-size: 90%;
 	margin: 3px;
 	padding: 3px 10px 3px 10px;
     //width: 10vw;
     //height: 5vh;
     //font-size: 1em;
 }
-
+#square_button{
+	float: left; 
+	width: 3%; 
+	padding: 5px; 
+	position: relative;
+	border-radius: 5px;
+	#icon{
+		width: 100%; 
+		height: 100%; 
+		display: block;
+	}
+}
 //#game_button{
 //	width: 15vw;
 //height: 5vh;
@@ -84,10 +97,7 @@ input[type="button"] {
 	input[type="button"]:hover {
 		background-color: var(--ButtonBackGroundColourHover);
 	}
-	img {
-		//max-height: 100%;
-		max-width: 100%;
-	}
+
 }
 
 //GAME sidebar
@@ -139,7 +149,8 @@ input[type="button"] {
 }
 
 input[type="submit"]:hover,
-input[type="button"]:hover {
+input[type="button"]:hover,
+button:hover {
 	color: var(--TextColour);
 	background-color: var(--ButtonBackGroundColourHover);
 }
@@ -261,37 +272,16 @@ input[type="email"] {
 #right {
 	margin-left: -150%;
 }
-/*
-select{
-	background-color: rgb(193, 92, 33);
-	color: var(--TextColour);
-	height: 5%;
-	width: 90%;
-	font-size: 120%;
-	border: transparent;
-}*/
+
 select{
     -webkit-appearance: none;
     padding: 7px 40px 7px 12px;
-    width: 90%;
-    border: 1px solid var(--TextColour);
+    width: 20%;
+    border: 1.5px solid var(--TextColour);
     border-radius: 5px;
     background: rgb(193, 92, 33);
     
-    font-size: 90%;
 }
-//problems at this stage
-/*#VersionOverlay{
-		-webkit-transform: rotate(330deg);
-		-moz-transform: rotate(330deg);
-		-o-transform: rotate(330deg);
-		-ms-transform: rotate(330deg);
-		transform: rotate(330deg);
-		width: 30px;
-		position:absolute;
-		left: 58vw;
-		top: 20vh;
-}*/
 
 //? notification system CSS
 
@@ -352,26 +342,29 @@ select{
 	color: black;
   }
 
-  	#common{
+  	#Common{
 		color: rgb(181, 181, 181);
   	}
-  	#uncommon{
+  	#Uncommon{
 		color: rgb(21, 202, 18);
 	}
-	#rare{
+	#Rare{
 		color: rgb(58, 152, 229);
 	}
-	#epic{
+	#Epic{
 		color: rgb(217, 25, 231);
 	}
-	#legendary{
+	#Legendary{
 		color: rgb(255, 208, 0);
 	}
-	#mythic{
+	#Mythic{
 		color: rgb(255, 42, 0);
 	}
-	#unique{
+	#Unique{
 		color: rgb(249, 141, 0);
+	}
+	#Unknown{
+		color: rgb(87, 39, 80);
 	}
 
 

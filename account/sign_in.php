@@ -38,10 +38,24 @@ if(empty($username)){
         }else{
             $_SESSION['signin'] = 'false';}
             notification('warn','Incorrect Username or Password!');
+            if(@$_COOKIE['sg_login'] >= 1){
+                $cookie_value = $_COOKIE['sg_login'];
+                $cookie_value++;
+                setcookie('sg_login', $cookie_value, time() + (86400 * 1), "/");
+              }else{
+                setcookie('sg_login', 1, time() + (86400 * 1), "/");
+            }
     }else{
         $_SESSION['signin'] = 'false';
         sleep(1);
         notification('warn','Incorrect Username or Password!');
+        if(@$_COOKIE['sg_login'] >= 1){
+            $cookie_value = $_COOKIE['sg_login'];
+            $cookie_value++;
+            setcookie('sg_login', $cookie_value, time() + (86400 * 1), "/");
+          }else{
+            setcookie('sg_login', 1, time() + (86400 * 1), "/");
+        }
 
     }
 }

@@ -29,16 +29,32 @@ body {
 }
 
 input[type="submit"],
-input[type="button"] {
+input[type="button"],
+button {
+  border-radius: 5px;
   font-family: var(--FontFamily);
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: hidden;
   background-color: var(--ButtonBackGroundColour);
-  font-size: 80%;
+  font-size: 90%;
   margin: 3px;
   padding: 3px 10px 3px 10px;
+}
+
+#square_button {
+  float: left;
+  width: 3%;
+  padding: 5px;
+  position: relative;
+  border-radius: 5px;
+}
+
+#square_button #icon {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .topheading {
@@ -73,10 +89,6 @@ input[type="button"] {
 #sidebar input[type="submit"]:hover,
 #sidebar input[type="button"]:hover {
   background-color: var(--ButtonBackGroundColourHover);
-}
-
-#sidebar img {
-  max-width: 100%;
 }
 
 [game] {
@@ -147,7 +159,8 @@ input[type="button"] {
 }
 
 input[type="submit"]:hover,
-input[type="button"]:hover {
+input[type="button"]:hover,
+button:hover {
   color: var(--TextColour);
   background-color: var(--ButtonBackGroundColourHover);
 }
@@ -279,36 +292,15 @@ input[type="email"] {
   margin-left: -150%;
 }
 
-/*
-select{
-	background-color: rgb(193, 92, 33);
-	color: var(--TextColour);
-	height: 5%;
-	width: 90%;
-	font-size: 120%;
-	border: transparent;
-}*/
 select {
   -webkit-appearance: none;
   padding: 7px 40px 7px 12px;
-  width: 90%;
-  border: 1px solid var(--TextColour);
+  width: 20%;
+  border: 1.5px solid var(--TextColour);
   border-radius: 5px;
   background: #c15c21;
-  font-size: 90%;
 }
 
-/*#VersionOverlay{
-		-webkit-transform: rotate(330deg);
-		-moz-transform: rotate(330deg);
-		-o-transform: rotate(330deg);
-		-ms-transform: rotate(330deg);
-		transform: rotate(330deg);
-		width: 30px;
-		position:absolute;
-		left: 58vw;
-		top: 20vh;
-}*/
 .note_warn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -397,31 +389,35 @@ select {
   color: black;
 }
 
-#common {
+#Common {
   color: #b5b5b5;
 }
 
-#uncommon {
+#Uncommon {
   color: #15ca12;
 }
 
-#rare {
+#Rare {
   color: #3a98e5;
 }
 
-#epic {
+#Epic {
   color: #d919e7;
 }
 
-#legendary {
+#Legendary {
   color: #ffd000;
 }
 
-#mythic {
+#Mythic {
   color: #ff2a00;
 }
 
-#unique {
+#Unique {
   color: #f98d00;
+}
+
+#Unknown {
+  color: #572750;
 }
 /*# sourceMappingURL=stylesheet.css.map */

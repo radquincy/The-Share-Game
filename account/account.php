@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
     require_once('../extras/important/require_me.php');
 ?>
 
@@ -75,11 +76,11 @@ if(isset($_POST['submitnewusername'])){
                 </div>";        
 
             }else{
-                
-                echo "<div class=\"note_warn\">
-                <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-                Username already taken, Please try another one!
-                </div>"; 
+                if ($new_username == $username){
+                    notification('medium','That already your Username! Why would you want to change it to that?');
+                }else{
+                    notification('warn','Username already taken, Please try another one!');
+                }
                 
             }
             
@@ -120,7 +121,7 @@ if(isset($_POST['submitnewusername'])){
     <input type="text" name="new_username" placeholder="New Username" minlength="0" maxlength="30" required>
     <input type="password" name="name_change_pass" placeholder="Comfirm Password" required minlength="6" maxlength="30" required>
     <br>
-    <input type="submit" value="Confirm New Password" name="submitnewusername">
+    <input type="submit" value="Confirm New Username" name="submitnewusername">
 </form>
 
 

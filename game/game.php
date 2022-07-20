@@ -2,12 +2,14 @@
 <?php 
 require('../extras/important/require_me.php');
 $_SESSION['lose'] = true;
+require('../extras/assets/game_parts/side_bar.php');
+require_once("../extras/assets/num_letter.php")
 ?>
 
 <body game>
 
 <!--sidebar-->
-    <?php require('../extras/assets/game_parts/side_bar.php');?>
+    <?php ?>
 <!--main content-->
 <div id="main">
     <!--Headings-->
@@ -16,59 +18,59 @@ $_SESSION['lose'] = true;
 <div id="main_content"> 
 <?php
 
-$info = savegame_key($userkey,$connect);
+    $info = savegame_key($userkey,$connect);
 
 
-if (!empty($_SESSION['session'])){
-    //money
+    if (!empty($_SESSION['session'])){
+        //money
 
-    @$money = $_SESSION['money'];
-    //sale1
-    @$sale1price = $_SESSION['sale1price'];
-    @$sale1 = $_SESSION['sale1'];
-    //sale2
-    @$sale2price = $_SESSION['sale2price'];
-    @$sale2 = $_SESSION['sale2'];
-    //day
-    @$day = $_SESSION['day'];
-    //rent
-    @$rentprice = $_SESSION['rentprice'];
-    @$rentday = $_SESSION['rentday'];
-    //last price +/-
-    @$sale1pricelast = $_SESSION['sale1pricelast'];
-    @$sale2pricelast = $_SESSION['sale2pricelast'];
-    @$pet = $_SESSION['pets'];
-    
-    @$game_mode = $_SESSION['game_mode'];
-}
-
-if(empty($day)){
-    $day = 0;
-}
-
-if(empty($_SESSION['session'])){
-    $_SESSION['session'] = 1;
-
-    require_once '../extras/load.php';
-    $networth = 0;
-
-    
-    if(!empty($_SESSION['money'])){
         @$money = $_SESSION['money'];
-    }
-    if(!empty($_SESSION['rentprice'])){
+        //sale1
+        @$sale1price = $_SESSION['sale1price'];
+        @$sale1 = $_SESSION['sale1'];
+        //sale2
+        @$sale2price = $_SESSION['sale2price'];
+        @$sale2 = $_SESSION['sale2'];
+        //day
+        @$day = $_SESSION['day'];
+        //rent
         @$rentprice = $_SESSION['rentprice'];
+        @$rentday = $_SESSION['rentday'];
+        //last price +/-
+        @$sale1pricelast = $_SESSION['sale1pricelast'];
+        @$sale2pricelast = $_SESSION['sale2pricelast'];
+        @$pet = $_SESSION['pets'];
+        
+        @$game_mode = $_SESSION['game_mode'];
     }
-}
+
+    if(empty($day)){
+        $day = 0;
+    }
+
+    if(empty($_SESSION['session'])){
+        $_SESSION['session'] = 1;
+
+        require_once '../extras/load.php';
+        $networth = 0;
+
+        
+        if(!empty($_SESSION['money'])){
+            @$money = $_SESSION['money'];
+        }
+        if(!empty($_SESSION['rentprice'])){
+            @$rentprice = $_SESSION['rentprice'];
+        }
+    }
 
 
-//PETS
-require('../extras/pets/validate_pet.php');
-if ($day == 0){
-    // $_SESSION['pet_usage'] = [0]=phoenix [1]=snake
-    $_SESSION['pet_usage'] = array(false, false);
-    $_SESSION['piggy_bank'] = 0;
-}
+    //PETS
+    require('../extras/pets/validate_pet.php');
+    if ($day == 0){
+        // $_SESSION['pet_usage'] = [0]=phoenix [1]=snake
+        $_SESSION['pet_usage'] = array(false, false);
+        $_SESSION['piggy_bank'] = 0;
+    }
 
 //? Pet Unlocking
     $user_pet_info = sg_pets_key($userkey, $connect);
@@ -120,12 +122,13 @@ if ($day == 0){
             $sale2price = 1;
         }
 
-        require("../extras/num_letters/money.php");
 
-        require("../extras/num_letters/share1.php");
-        require("../extras/num_letters/share2.php");
+        $moneyL = num_to_letter($money);
+
+        $sale1L = num_to_letter($sale1);
+        $sale2L = num_to_letter($sale2);
         
-        require("../extras/num_letters/rent_price.php");
+        $rentpriceL = num_to_letter($rentprice);
 
     //? day based pets 
     if($day >= 100){
@@ -149,24 +152,19 @@ if ($day == 0){
 
         }
     } 
-    ?>
 
+    //require main buttons and pets
+    require('../extras/assets/game_parts/main_buttons.php');
 
-    <!--main buttons and text-->
-    <?php require('../extras/assets/game_parts/main_buttons.php');?>
+    //calculate networth
+    $networth = ($sale1 * $sale1price) + ($sale2 * $sale2price) + $money; 
 
+    $networthL = num_to_letter($networth);
 
-
-<?php 
-//calculate networth
-$networth = ($sale1 * $sale1price) + ($sale2 * $sale2price) + $money; 
-
-require("../extras/num_letters/net_worth.php");
-
-$piggy_bank = $_SESSION['piggy_bank'];
-if(empty(@$piggy_bank)){
-    $piggy_bank = 0;
-}
+    $piggy_bank = $_SESSION['piggy_bank'];
+    if(empty(@$piggy_bank)){
+        $piggy_bank = 0;
+    }
 
 ?>
 
@@ -198,7 +196,7 @@ VALUES('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1'
         $score = 0;
     }
     
-    $info589 = user_stats('',$connect);
+    $info589 = user_stats($userkey,$connect);
 
     if ($info589['UserKey'] == $userkey){
         if ($info589['high_score'] > $score){
