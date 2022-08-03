@@ -64,7 +64,7 @@
 
 foreach($data as $value){ 
     $UserKeySearch = $value['UserKey'];
-    $data2 = mysqli_query($connect,"SELECT * FROM sgsignin WHERE userkey = '$UserKeySearch';");
+    $data2 = mysqli_query($connect,"SELECT * FROM sg_users WHERE userkey = '$UserKeySearch';");
     $info2 = mysqli_fetch_array( $data2 );
     echo '<tr>';
     echo '<td>'.$info2["username"].'</td><td>'.num_to_letter($value["high_score"]).'</td><td>'.num_to_letter($value["highest_networth"]).'</td><td>'.$value["highest_day"].'</td><td>'.$value["games_played"].'</td>';

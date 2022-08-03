@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
     require_once('../extras/important/require_me.php');
 ?>
 

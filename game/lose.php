@@ -99,7 +99,7 @@ require('../extras/important/require_me.php');
     $sale2price = rand(10,60);
 
  
-    mysqli_query ($connect,"UPDATE savegame SET day = '0', rentduein = '30', rentprice = '100', money = '500', share1price = '$sale1price', share1owned = '0',share1pricelast = '0', share2price = '$sale2price', share2owned = '0', share2pricelast = '0' WHERE UserKey = '$userkey'");
+    mysqli_query ($connect,"UPDATE sg_save SET day = '0', rentduein = '30', rentprice = '100', money = '500', share1price = '$sale1price', share1owned = '0',share1pricelast = '0', share2price = '$sale2price', share2owned = '0', share2pricelast = '0' WHERE UserKey = '$userkey'");
     
     
     

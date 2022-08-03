@@ -182,9 +182,9 @@ function resetGame(){
 if (isset($_POST["nextday"]) || isset($_POST["save"])){
 
 if ($info['UserKey'] == $userkey){
-mysqli_query ($connect,"UPDATE savegame SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast', last_pet = '$pet', piggy_bank = '$piggy_bank', game_mode = '$game_mode' WHERE UserKey = '$userkey'");
+mysqli_query ($connect,"UPDATE sg_save SET day = '$day', rentduein = '$rentday', rentprice = '$rentprice', money = '$money', share1price = '$sale1price', share1owned = '$sale1',share1pricelast = '$sale1pricelast', share2price = '$sale2price', share2owned = '$sale2',share2pricelast = '$sale2pricelast', last_pet = '$pet', piggy_bank = '$piggy_bank', game_mode = '$game_mode' WHERE UserKey = '$userkey'");
 }else{
-mysqli_query ($connect,"INSERT INTO savegame (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast,last_pet,piggy_bank,game_mode) 
+mysqli_query ($connect,"INSERT INTO sg_save (UserKey,day,rentduein,rentprice,money,share1price,share1owned,share1pricelast,share2price,share2owned,share2pricelast,last_pet,piggy_bank,game_mode) 
 VALUES('$userkey','$day','$rentday','$rentprice','$money','$sale1price','$sale1','$sale1pricelast','$sale2price','$sale2','$sale2pricelast','$pet','$piggy_bank','$game_mode')");
 }
 //save the stats on the game you are playing

@@ -8,13 +8,13 @@
     }
 
     function sgsignin_username($username_var,$database_connection){
-        $user_data = mysqli_query($database_connection,"SELECT * FROM sgsignin WHERE username = '$username_var';");
+        $user_data = mysqli_query($database_connection,"SELECT * FROM sg_users WHERE username = '$username_var';");
         $user_info = mysqli_fetch_array($user_data);
         return $user_info;
     }
 
     function savegame_key($user_key,$database_connection){
-        $data = mysqli_query($database_connection,"SELECT * FROM savegame WHERE UserKey = '$user_key';");
+        $data = mysqli_query($database_connection,"SELECT * FROM sg_save WHERE UserKey = '$user_key';");
         $info = mysqli_fetch_array( $data );
         return $info;
     }

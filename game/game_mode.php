@@ -2,7 +2,7 @@
 <?php require('../extras/important/require_me.php'); ?>
 
 <?php
-    $data = mysqli_query($connect,"SELECT * FROM savegame WHERE UserKey = '$userkey';");
+    $data = mysqli_query($connect,"SELECT * FROM sg_save WHERE UserKey = '$userkey';");
     $info = mysqli_fetch_array( $data );
 
     if($info['day'] > 0){
@@ -10,9 +10,7 @@
     }
 
 ?>
-<head>
-    <title>Shares Game - Select Mode</title>
-</head>
+
 <div class="topheading"><img src="../images/logo2.png" style="width: 200px;"><br>
 Pick a Game Mode
 </div>
@@ -73,19 +71,18 @@ Pick a Game Mode
 <?php
 
 if(isset($_POST['normal'])){
-    header("Location: game.php");
     $_SESSION['game_mode'] = 'normal';
+    header("Location: game.php");
 }
 if(isset($_POST['hard'])){
     $_SESSION['money'] = 100;
-    header("Location: game.php");
     $_SESSION['game_mode'] = 'hard';
+    header("Location: game.php");
 }
 if(isset($_POST['1dollar'])){
     $_SESSION['money'] = 1;
     $_SESSION['rentprice'] = 1;
     $_SESSION['game_mode'] = '1dollar';
-    
     header("Location: game.php");
 
 }

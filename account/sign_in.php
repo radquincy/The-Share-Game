@@ -36,7 +36,7 @@ if(empty($username)){
             $_SESSION['signin'] = 'true';
             header( "refresh:0; url=../game/home.php");
         }else{
-            $_SESSION['signin'] = 'false';}
+            $_SESSION['signin'] = 'false';
             notification('warn','Incorrect Username or Password!');
             if(@$_COOKIE['sg_login'] >= 1){
                 $cookie_value = $_COOKIE['sg_login'];
@@ -45,6 +45,7 @@ if(empty($username)){
               }else{
                 setcookie('sg_login', 1, time() + (86400 * 1), "/");
             }
+        }
     }else{
         $_SESSION['signin'] = 'false';
         sleep(1);
