@@ -28,8 +28,8 @@ body {
   text-align: center;
 }
 
-input[type="submit"],
-input[type="button"],
+input[type=submit],
+input[type=button],
 button {
   border-radius: 5px;
   font-family: var(--FontFamily);
@@ -50,7 +50,6 @@ button {
   position: relative;
   border-radius: 5px;
 }
-
 #square_button #icon {
   width: 100%;
   height: 100%;
@@ -76,90 +75,64 @@ button {
   background-color: var(--SideBarBackgroundColour);
   height: 90vh;
 }
-
-#sidebar input[type="submit"],
-#sidebar input[type="button"] {
+#sidebar input[type=submit],
+#sidebar input[type=button] {
   background-color: var(--ButtonBackGroundColour);
   color: var(--TextColour);
   height: 10%;
   width: 90%;
   font-size: 120%;
 }
-
-#sidebar input[type="submit"]:hover,
-#sidebar input[type="button"]:hover {
+#sidebar input[type=submit]:hover,
+#sidebar input[type=button]:hover {
   background-color: var(--ButtonBackGroundColourHover);
 }
 
 [game] {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   width: 100%;
   max-height: 100%;
 }
-
 [game] #main {
-  -webkit-box-flex: 100%;
-      -ms-flex: 100%;
-          flex: 100%;
+  flex: 100%;
   text-align: center;
   max-width: 85%;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-
 [game] #sidebar {
-  -webkit-box-flex: 100%;
-      -ms-flex: 100%;
-          flex: 100%;
+  flex: 100%;
   text-align: center;
   max-width: 15%;
 }
 
 #main {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
   width: 100%;
   height: 100%;
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
+  align-content: flex-start;
 }
-
 #main .topheadingmaingame {
   background-color: var(--HeadingBackGroundColour);
   text-align: center;
   font-size: 40px;
-  -webkit-box-flex: 100%;
-      -ms-flex: 100%;
-          flex: 100%;
+  flex: 100%;
   text-align: center;
   max-width: 100%;
   max-height: 15%;
   padding: 1%;
 }
-
 #main #main_content {
-  -webkit-box-flex: 100%;
-      -ms-flex: 100%;
-          flex: 100%;
+  flex: 100%;
   text-align: center;
   max-width: 100%;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-input[type="submit"]:hover,
-input[type="button"]:hover,
+input[type=submit]:hover,
+input[type=button]:hover,
 button:hover {
   color: var(--TextColour);
   background-color: var(--ButtonBackGroundColourHover);
@@ -176,21 +149,18 @@ button:hover {
 }
 
 #TopBar {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   text-align: center;
 }
-
 #TopBar section {
   width: 25%;
   text-align: center;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
+input[type=text],
+input[type=password],
+input[type=email] {
   font-family: var(--FontFamily);
   border-top-style: hidden;
   border-right-style: hidden;
@@ -205,20 +175,15 @@ input[type="email"] {
 }
 
 #pet_grid {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-wrap: nowrap;
   font-size: 30px;
   margin-left: 10vw;
   margin-right: 10vw;
 }
 
 #pet_grid > div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 100%;
-          flex: 1 100%;
+  flex: 1 100%;
   margin: 10px;
   text-align: center;
   line-height: 75px;
@@ -228,7 +193,6 @@ input[type="email"] {
   position: relative;
   display: inline-block;
 }
-
 .tooltip .tooltiptext {
   line-height: 30px;
   font-size: 20px;
@@ -245,12 +209,9 @@ input[type="email"] {
   left: 50%;
   margin-left: -100%;
   opacity: 0;
-  -webkit-transition: opacity 1s;
   transition: opacity 1s;
-  -webkit-transition-delay: 600ms;
-          transition-delay: 600ms;
+  transition-delay: 600ms;
 }
-
 .tooltip .tooltiptext_mode {
   line-height: 30px;
   font-size: 20px;
@@ -268,10 +229,8 @@ input[type="email"] {
   margin-left: -150%;
   margin-bottom: 20%;
   opacity: 0;
-  -webkit-transition: opacity 1s;
   transition: opacity 1s;
-  -webkit-transition-delay: 1200ms;
-          transition-delay: 1200ms;
+  transition-delay: 1200ms;
 }
 
 .tooltip:hover .tooltiptext {
@@ -298,89 +257,58 @@ select {
   width: 20%;
   border: 1.5px solid var(--TextColour);
   border-radius: 5px;
-  background: #c15c21;
+  background: rgb(193, 92, 33);
 }
 
 .note_warn {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
   background-color: #f44336;
   color: white;
   width: 98%;
-  -webkit-box-flex: 100%;
-      -ms-flex: 100%;
-          flex: 100%;
+  flex: 100%;
   max-width: 100%;
   max-height: 15%;
   padding: 1%;
 }
 
 .note_good {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
   background-color: #46c764;
   color: white;
   width: 98%;
-  -webkit-box-flex: 100%;
-      -ms-flex: 100%;
-          flex: 100%;
+  flex: 100%;
   max-width: 100%;
   max-height: 15%;
   padding: 1%;
 }
 
 .note_medium {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
   background-color: #f48f36;
   color: white;
   width: 98%;
-  -webkit-box-flex: 100%;
-      -ms-flex: 100%;
-          flex: 100%;
+  flex: 100%;
   max-width: 100%;
   max-height: 15%;
   padding: 1%;
 }
 
 .closebtn {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
   color: white;
   font-weight: bold;
   float: right;
   font-size: 22px;
   line-height: 20px;
   cursor: pointer;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   width: 2%;
 }
@@ -390,34 +318,33 @@ select {
 }
 
 #Common {
-  color: #b5b5b5;
+  color: rgb(181, 181, 181);
 }
 
 #Uncommon {
-  color: #15ca12;
+  color: rgb(21, 202, 18);
 }
 
 #Rare {
-  color: #3a98e5;
+  color: rgb(58, 152, 229);
 }
 
 #Epic {
-  color: #d919e7;
+  color: rgb(217, 25, 231);
 }
 
 #Legendary {
-  color: #ffd000;
+  color: rgb(255, 208, 0);
 }
 
 #Mythic {
-  color: #ff2a00;
+  color: rgb(255, 42, 0);
 }
 
 #Unique {
-  color: #f98d00;
+  color: rgb(249, 141, 0);
 }
 
 #Unknown {
-  color: #572750;
-}
-/*# sourceMappingURL=stylesheet.css.map */
+  color: rgb(87, 39, 80);
+}/*# sourceMappingURL=stylesheet.css.map */

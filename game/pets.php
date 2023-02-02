@@ -99,45 +99,19 @@ echo_pet_info($user_pet_info, $pet, $rarity, $unlocked_msg, $locked_msg);
     <div class="tooltip">
         Pig
         <?php 
-            if($user_pet_info['pig'] == 1){
-                echo '<img src="../images/pets/pig.png" style="width: 100%;">';
-            }else{
-                echo '<img src="../images/pets/unlock/pig.png" style="width: 100%;">';
-            }
-        ?>
-        <span class="tooltiptext">
-        <?php 
-            if($user_pet_info['pig'] == 1){
-                echo '-Will save 1% of your money to a piggy bank everyday.<br>
-                -if you are going to lose the pig will smash the piggy bank and use the money to hopefully save you.<br>';
-            }else{
-                echo '???';
-            }
-        ?>
-            <div id='epic'>[Epic]</div>
+            echo_pet_info($user_pet_info, 'pig', 'Epic', '-Will save 1% of your money to a piggy bank everyday.<br> -if you are going to lose the pig will smash the piggy bank and use the money to hopefully save you.<br>' , '???');
 
-
+        ?>
+    
         </span>
     </div>
     <div class="tooltip" >
         Turtle
         <?php 
-            if($user_pet_info['turtle'] == 1){
-                echo '<img src="../images/pets/turtle.png" style="width: 100%;">';
-            }else{
-                echo '<img src="../images/pets/unlock/turtle.png" style="width: 100%;">';
-            }
+            echo_pet_info($user_pet_info, 'turtle', 'Rare', '-Lets you have 5-15 more days to pay for rent.<br> -Increases rent price by 10%.<br>' , '???');
+
         ?>
-        <span class="tooltiptext" id="right">
-        <?php 
-            if($user_pet_info['turtle'] == 1){
-                echo '-Lets you have 5-15 more days to pay for rent.<br>
-                -Increases rent price by 10%.<br>';
-            }else{
-                echo '???';
-            }
-        ?>
-            <div id='rare'>[Rare]</div>
+
 
         </span>
     </div>
@@ -147,45 +121,16 @@ echo_pet_info($user_pet_info, $pet, $rarity, $unlocked_msg, $locked_msg);
     <div class="tooltip">
         Bird
         <?php 
-            if($user_pet_info['bird'] == 1){
-                echo '<img src="../images/pets/bird.png" style="width: 100%;">';
-            }else{
-                echo '<img src="../images/pets/unlock/bird.png" style="width: 100%;">';
-            }
+            echo_pet_info($user_pet_info, 'bird', 'Rare', '-Can uncommonly give you a cheque that has 0% - 30% of your rent price<br>' , '???');
         ?>
-        <span class="tooltiptext">
-        <?php 
-            if($user_pet_info['bird'] == 1){
-                echo '-Can uncommonly give you a cheque that has 0% - 30% of your rent price<br>';
-            }else{
-                echo '???';
-            }
-        ?>
-            <div id='rare'>[Rare]</div>
-
-        </span>
     </div>
+
     <div class="tooltip">
         Snake
         <?php 
-            if($user_pet_info['snake'] == 1){
-                echo '<img src="../images/pets/snake.png" style="width: 100%;">';
-            }else{
-                echo '<img src="../images/pets/unlock/snake.png" style="width: 100%;">';
-            }
+            echo_pet_info($user_pet_info, 'snake', 'Rare', '-Gives you +1% rent price as profit each day.<br>
+            -Has a rare chance of being killed making you lose the buff.<br>' , '???');
         ?>
-        <span class="tooltiptext">
-        <?php 
-            if($user_pet_info['snake'] == 1){
-                echo '-Gives you +1% rent price as profit each day.<br>
-                -Has a rare chance of being killed making you lose the buff.<br>';
-            }else{
-                echo '???';
-            }
-        ?>
-            <div id='epic'>[Epic]</div>
-
-        </span>
     </div>
     <div class="tooltip">
         Rock

@@ -64,8 +64,6 @@ if(@$_COOKIE['sg_login'] >= 6){
 }
 
 
-
-
 echo '<link rel="stylesheet" href="'.$dir.'css/stylesheet.css">';
 echo '<link href="'.$dir.'images/icon/favicon.ico" rel="icon" type="image/x-icon" />';
 require_once $dir.'extras/important/connect.php';
@@ -79,5 +77,3 @@ echo '<title>Shares Game - '.$read_page_name.'</title>';
 
 //? game version 
 $game_version = '6.2';
-
-?>

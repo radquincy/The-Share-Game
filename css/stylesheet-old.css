@@ -25,8 +25,8 @@ body {
   overflow-x: hidden;
 }
 
-input[type="submit"],
-input[type="button"] {
+input[type=submit],
+input[type=button] {
   font-family: var(--FontFamily);
   border-top-style: hidden;
   border-right-style: hidden;
@@ -77,8 +77,8 @@ input[type="button"] {
   padding-top: 20px;
 }
 
-.sidenav input[type="button"],
-.sidenav input[type="submit"] {
+.sidenav input[type=button],
+.sidenav input[type=submit] {
   background-color: var(--ButtonBackGroundColour);
   color: var(--TextColour);
   padding: 6px 8px 6px 16px;
@@ -86,8 +86,8 @@ input[type="button"] {
   width: 90%;
 }
 
-input[type="submit"]:hover,
-input[type="button"]:hover {
+input[type=submit]:hover,
+input[type=button]:hover {
   color: var(--TextColour);
   background-color: var(--ButtonBackGroundColourHover);
 }
@@ -105,8 +105,7 @@ input[type="button"]:hover {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 5px var(--MainBackGroundColour);
-          box-shadow: inset 0 0 5px var(--MainBackGroundColour);
+  box-shadow: inset 0 0 5px var(--MainBackGroundColour);
 }
 
 /* Handle */
@@ -116,8 +115,6 @@ input[type="button"]:hover {
 }
 
 #TopBar {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   text-align: center;
@@ -143,9 +140,9 @@ input[type="button"]:hover {
   text-align: center;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
+input[type=text],
+input[type=password],
+input[type=email] {
   font-family: var(--FontFamily);
   border-top-style: hidden;
   border-right-style: hidden;
@@ -159,15 +156,11 @@ input[type="email"] {
   border-color: var(--TextColour);
 }
 
-::-webkit-input-placeholder {
+::-moz-placeholder {
   color: var(--TextColour);
 }
 
 :-ms-input-placeholder {
-  color: var(--TextColour);
-}
-
-::-ms-input-placeholder {
   color: var(--TextColour);
 }
 
@@ -176,18 +169,13 @@ input[type="email"] {
 }
 
 #pet_grid {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-wrap: nowrap;
   font-size: 30px;
 }
 
 #pet_grid > div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 100%;
-          flex: 1 100%;
+  flex: 1 100%;
   margin: 10px;
   text-align: center;
   line-height: 75px;
@@ -197,7 +185,6 @@ input[type="email"] {
   position: relative;
   display: inline-block;
 }
-
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 200%;
@@ -213,7 +200,6 @@ input[type="email"] {
   margin-left: -100%;
   /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
   opacity: 0;
-  -webkit-transition: opacity 1s;
   transition: opacity 1s;
 }
 
@@ -230,5 +216,4 @@ input[type="email"] {
   font-size: 20px;
   visibility: visible;
   opacity: 1;
-}
-/*# sourceMappingURL=stylesheet-old.css.map */
+}/*# sourceMappingURL=stylesheet-old.css.map */
