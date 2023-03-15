@@ -160,10 +160,6 @@ input[type=email] {
   color: var(--TextColour);
 }
 
-:-ms-input-placeholder {
-  color: var(--TextColour);
-}
-
 ::placeholder {
   color: var(--TextColour);
 }
