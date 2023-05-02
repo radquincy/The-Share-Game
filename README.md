@@ -1,3 +1,3 @@
 # The-Share-Game
-A game where you buy and sell shares
+A game where you buy and sell shares  
 This is an old project i made and its just funny i made a game in php which is very slow...
