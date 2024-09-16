@@ -14,6 +14,8 @@ require('extras/important/require_me.php');
     <div class="topheading">
         <img src="images/logo2.png" style="width: 200px;">
         <p>Version: <?php echo $game_version ?></p>
+        <!-- This is to comply with free png licence -->
+        <p>Icons Designed by Freepik</p>
     </div>
 
     <br><br>
