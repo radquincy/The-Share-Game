@@ -1,0 +1,31 @@
+# All Pets Images were downloaded from [http://www.freepik/](http://www.freepik/)
+
+The "Unlocked" files were edited to be grayscale by me, Rad_Quincy
+If there are more images than pets in the game thats because it was planing to be added
+
+
+1. [Bee](https://www.freepik.com/icon/bee_826944)
+2. [Bird]()
+3. [Butterfly]()
+4. [Cat]()
+5. [Cow]()
+6. [Dinosaur]()
+7. [Dog]()
+8. [Dragon]()
+9. [Eagle]()
+10. [Egg]()
+11. [Fox]()
+12. [Goldfish]()
+13. [Horse]()
+14. [Monkey]()
+15. [Owl]()
+16. [Panda]()
+17. [Phoenix]()
+18. [Pig]()
+19. [Rabbit]()
+20. [Rock]()
+21. [Snail]()
+22. [Snake]()
+23. [Turtle]()
+24. [Unicorn]()
+25. [Whale]()
